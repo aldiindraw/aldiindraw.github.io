@@ -173,6 +173,9 @@ caption { text-align: left; font-weight: 600; padding-bottom: 6px; }
   font-weight: 600; text-decoration: none; padding: 12px 22px; border-radius: 10px;
 }
 .btn:hover { filter: brightness(1.08); }
+.contact-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn-ghost { background: transparent; color: var(--ink); border: 2px solid var(--ink); font: inherit; font-weight: 600; cursor: pointer; }
+.mail-line { margin: 14px 0 0; color: var(--muted); font-size: .95rem; }
 .social { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 24px; }
 footer { padding: 32px 0 48px; color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line); }
 
@@ -380,7 +383,11 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: .9rem; border-top
     <section id="kontak" class="contact" aria-labelledby="h-kontak">
       <h2 id="h-kontak">Kontak</h2>
       <p>Terbuka untuk kolaborasi dan peluang kerja. Cara tercepat menghubungi saya lewat email.</p>
-      <a class="btn" href="mailto:indrawan.aldi17@gmail.com">Kirim email</a>
+      <div class="contact-actions">
+        <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=indrawan.aldi17@gmail.com&su=Halo%20Aldi" target="_blank" rel="noopener">Kirim email</a>
+        <button class="btn btn-ghost" id="copy-mail" type="button" data-mail="indrawan.aldi17@gmail.com">Salin email</button>
+      </div>
+      <p class="mail-line">Atau tulis langsung ke <a href="mailto:indrawan.aldi17@gmail.com">indrawan.aldi17@gmail.com</a></p>
       <div class="social">
         <a href="https://github.com/aldiindraw">GitHub</a>
         <a href="https://www.linkedin.com/in/aldi-indrawan-256329386/">LinkedIn</a>
@@ -438,6 +445,10 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: .9rem; border-top
     });
   });
 })();
+
+(function(){var b=document.getElementById('copy-mail');if(!b)return;b.addEventListener('click',function(){var m=b.dataset.mail,t=b.textContent;
+function ok(){b.textContent='Tersalin!';setTimeout(function(){b.textContent=t},1800)}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(m).then(ok,function(){prompt('Salin email:',m)})}else{prompt('Salin email:',m)}})})();
 </script>
 </body>
 </html>
