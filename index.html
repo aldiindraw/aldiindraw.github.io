@@ -65,7 +65,16 @@ a:hover { text-decoration-thickness: 2px; }
 .theme:hover { border-color: var(--ink); }
 
 /* hero */
-.hero { padding: clamp(40px, 9vw, 96px) 0 clamp(32px, 6vw, 56px); }
+.hero { position: relative; margin-top: 8px; padding: clamp(32px, 6vw, 64px) clamp(20px, 4vw, 48px); border-radius: 28px; overflow: hidden;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 16%, var(--surface)) 0%, var(--surface) 55%, color-mix(in srgb, var(--accent) 8%, var(--surface)) 100%);
+  border: 1px solid var(--line); }
+.hero::before { content: ""; position: absolute; width: 420px; height: 420px; right: -120px; top: -140px; border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 22%, transparent); filter: blur(10px); pointer-events: none; }
+.hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(200px, 320px); gap: clamp(24px, 5vw, 56px); align-items: center; }
+.hero-photo { margin: 0; justify-self: center; width: 100%; max-width: 320px; aspect-ratio: 1; border-radius: 50%; padding: 8px;
+  background: conic-gradient(from 200deg, var(--accent), color-mix(in srgb, var(--accent) 30%, var(--surface)), var(--accent)); box-shadow: 0 18px 50px -18px color-mix(in srgb, var(--accent) 60%, transparent); }
+.hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; border-radius: 50%; border: 4px solid var(--surface); }
+@media (max-width: 720px) { .hero-grid { grid-template-columns: 1fr; } .hero-photo { order: -1; max-width: 200px; } }
 .hero h1 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -190,6 +199,8 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: .9rem; border-top
 
   <main>
     <div class="hero">
+     <div class="hero-grid">
+      <div class="hero-text">
       <h1>Aldi Indrawan</h1>
       <p class="lead">
         Fullstack developer dan mahasiswa S2 Ilmu Komputer di <strong>Universitas Gadjah Mada</strong>, Yogyakarta.
@@ -208,6 +219,9 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: .9rem; border-top
         </div>
         <p class="status" id="status" role="status" aria-live="polite"></p>
       </form>
+      </div>
+      <figure class="hero-photo"><img src="images/aldi-profil.webp" width="720" height="720" alt="Foto Aldi Indrawan"></figure>
+     </div>
     </div>
 
     <section id="proyek" aria-labelledby="h-proyek">
