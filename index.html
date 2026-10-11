@@ -1,458 +1,174 @@
-<!doctype html>
-<html lang="id">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aldi Indrawan – Fullstack Developer, Desainer UI dan AI Agent</title>
-<meta name="description" content="Portofolio Aldi Indrawan: fullstack developer, desainer antarmuka, dan pengembang AI agent. Mahasiswa S2 Ilmu Komputer Universitas Gadjah Mada.">
-<meta name="theme-color" content="#F2F4F7">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg: #F2F4F7;
-  --surface: #FFFFFF;
-  --ink: #16202A;
-  --muted: #566573;
-  --line: #D5DBE2;
-  --accent: #1F4FD8;
-  --accent-ink: #FFFFFF;
-  --tag: #E4EAF7;
-  --tag-ink: #1C3A94;
-  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --font-body: "Figtree", "Segoe UI", system-ui, sans-serif;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0F151C; --surface: #16202B; --ink: #E7ECF2; --muted: #9AA8B7;
-    --line: #2A3644; --accent: #8AA9FF; --accent-ink: #0F151C;
-    --tag: #1E2B45; --tag-ink: #B9CBFF;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0F151C; --surface: #16202B; --ink: #E7ECF2; --muted: #9AA8B7;
-  --line: #2A3644; --accent: #8AA9FF; --accent-ink: #0F151C;
-  --tag: #1E2B45; --tag-ink: #B9CBFF;
-}
-
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--font-body);
-  font-size: 1.0625rem;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-a { color: var(--accent); text-underline-offset: 3px; }
-a:hover { text-decoration-thickness: 2px; }
-:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
-.wrap { width: min(1080px, 100% - 32px); margin-inline: auto; }
-
-/* header */
-.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; }
-.top nav { display: flex; gap: 20px; flex-wrap: wrap; }
-.top nav a { color: var(--ink); text-decoration: none; font-weight: 500; }
-.top nav a:hover { color: var(--accent); }
-.theme {
-  font: inherit; font-size: .9rem; font-weight: 500; color: var(--ink);
-  background: transparent; border: 1px solid var(--line); border-radius: 999px;
-  padding: 6px 14px; cursor: pointer;
-}
-.theme:hover { border-color: var(--ink); }
-
-/* hero */
-.hero { position: relative; margin-top: 8px; padding: clamp(32px, 6vw, 64px) clamp(20px, 4vw, 48px); border-radius: 28px; overflow: hidden;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 16%, var(--surface)) 0%, var(--surface) 55%, color-mix(in srgb, var(--accent) 8%, var(--surface)) 100%);
-  border: 1px solid var(--line); }
-.hero::before { content: ""; position: absolute; width: 420px; height: 420px; right: -120px; top: -140px; border-radius: 50%;
-  background: color-mix(in srgb, var(--accent) 22%, transparent); filter: blur(10px); pointer-events: none; }
-.hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(200px, 320px); gap: clamp(24px, 5vw, 56px); align-items: center; }
-.hero-photo { margin: 0; justify-self: center; width: 100%; max-width: 320px; aspect-ratio: 1; border-radius: 50%; padding: 8px;
-  background: conic-gradient(from 200deg, var(--accent), color-mix(in srgb, var(--accent) 30%, var(--surface)), var(--accent)); box-shadow: 0 18px 50px -18px color-mix(in srgb, var(--accent) 60%, transparent); }
-.hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; border-radius: 50%; border: 4px solid var(--surface); }
-@media (max-width: 720px) { .hero-grid { grid-template-columns: 1fr; } .hero-photo { order: -1; max-width: 200px; } }
-.hero h1 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(3rem, 11vw, 7.5rem);
-  line-height: .95;
-  letter-spacing: -0.035em;
-  margin: 0 0 24px;
-}
-.hero p.lead { font-size: clamp(1.1rem, 2.4vw, 1.35rem); max-width: 34em; margin: 0 0 36px; color: var(--muted); }
-.hero p.lead strong { color: var(--ink); font-weight: 600; }
-
-.search { position: relative; max-width: 640px; }
-.search label { display: block; font-weight: 600; margin-bottom: 8px; }
-.search input {
-  width: 100%; font: inherit; font-size: 1.15rem; color: var(--ink);
-  background: var(--surface); border: 2px solid var(--ink); border-radius: 12px;
-  padding: 14px 16px;
-}
-.search input::placeholder { color: var(--muted); }
-.search input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 25%, transparent); }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-.chip {
-  font: inherit; font-size: .9rem; font-weight: 500; cursor: pointer;
-  background: var(--tag); color: var(--tag-ink); border: 0; border-radius: 999px; padding: 5px 14px;
-}
-.chip:hover { background: var(--accent); color: var(--accent-ink); }
-.status { margin: 14px 0 0; color: var(--muted); font-size: .95rem; min-height: 1.6em; }
-
-/* sections */
-section { padding: clamp(32px, 6vw, 64px) 0; border-top: 1px solid var(--line); }
-h2 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.4rem); letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 28px; }
-h3 { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: -0.015em; line-height: 1.15; margin: 0 0 8px; }
-
-.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 0; padding: 0; list-style: none; }
-.tags li { background: var(--tag); color: var(--tag-ink); font-size: .85rem; font-weight: 500; padding: 2px 10px; border-radius: 6px; }
-
-.project[hidden] { display: none; }
-
-/* featured project */
-.featured {
-  background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
-  padding: clamp(20px, 4vw, 40px);
-  display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(24px, 4vw, 48px);
-  margin-bottom: 24px;
-}
-.featured h3 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
-.featured .desc { color: var(--muted); margin: 0 0 20px; max-width: 38em; }
-.featured h4 { font-size: 1rem; margin: 0 0 10px; }
-.featured ul.role { margin: 0; padding-left: 1.2em; }
-.featured ul.role li { margin-bottom: 10px; max-width: 42em; }
-.side { border-left: 1px solid var(--line); padding-left: clamp(20px, 3vw, 36px); }
-.side dl { margin: 0 0 20px; }
-.side dt { font-weight: 600; font-size: .95rem; }
-.side dd { margin: 0 0 12px; color: var(--muted); }
-.note { font-size: .92rem; color: var(--muted); border-left: 3px solid var(--line); padding-left: 12px; margin: 16px 0 0; }
-
-/* other projects */
-.row {
-  display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(16px, 4vw, 48px);
-  padding: 28px 0; border-top: 1px solid var(--line);
-}
-.row:first-of-type { border-top: 0; padding-top: 0; }
-.row p { margin: 0 0 12px; max-width: 40em; }
-.row .meta { color: var(--muted); }
-
-table { border-collapse: collapse; width: 100%; max-width: 460px; margin: 6px 0 12px; font-size: .95rem; font-variant-numeric: tabular-nums; }
-th, td { text-align: left; padding: 6px 12px 6px 0; border-bottom: 1px solid var(--line); }
-th { font-weight: 600; }
-td.num, th.num { text-align: right; padding-right: 0; }
-caption { text-align: left; font-weight: 600; padding-bottom: 6px; }
-
-.links { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 8px; font-weight: 600; }
-
-/* screenshot */
-.shots { display: grid; gap: 20px; margin: 20px 0 8px; }
-.shots figure { margin: 0; }
-.shots img {
-  display: block; width: 100%; height: auto;
-  border: 1px solid var(--line); border-radius: 10px; background: #fff;
-}
-.shots figcaption { font-size: .92rem; color: var(--muted); margin-top: 8px; max-width: 42em; }
-.featured .shots { grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 8px 0 0; gap: 24px; }
-.featured .shots figure:nth-child(-n+2) { grid-column: 1 / -1; }
-.shots-note { font-size: .9rem; color: var(--muted); margin: 4px 0 0; }
-.featured .shots-note { grid-column: 1 / -1; margin: -8px 0 0; }
-
-/* stack */
-.stack { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; }
-.stack h3 { font-size: 1.1rem; margin-bottom: 6px; }
-.stack p { margin: 0; color: var(--muted); }
-
-/* contact */
-.contact p { max-width: 36em; color: var(--muted); margin: 0 0 20px; }
-.btn {
-  display: inline-block; background: var(--accent); color: var(--accent-ink);
-  font-weight: 600; text-decoration: none; padding: 12px 22px; border-radius: 10px;
-}
-.btn:hover { filter: brightness(1.08); }
-.contact-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.btn-wa { background: #1B8F4C; color: #fff; }
-.btn-ghost { background: transparent; color: var(--ink); border: 2px solid var(--ink); font: inherit; font-weight: 600; cursor: pointer; }
-.mail-line { margin: 14px 0 0; color: var(--muted); font-size: .95rem; }
-.social { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 24px; }
-footer { padding: 32px 0 48px; color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line); }
-
-@media (max-width: 760px) {
-  .featured { grid-template-columns: 1fr; }
-  .side { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 20px; }
-  .row { grid-template-columns: 1fr; gap: 8px; }
-  .featured .shots { grid-template-columns: 1fr; }
-}
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-</style>
-</head>
-<body>
-
-<div class="wrap">
-  <header class="top">
-    <nav aria-label="Navigasi utama">
-      <a href="#proyek">Proyek</a>
-      <a href="#keahlian">Keahlian</a>
-      <a href="#kontak">Kontak</a>
-    </nav>
-    <button class="theme" id="theme" type="button" aria-label="Ganti tema terang atau gelap">Tema</button>
-  </header>
-
-  <main>
-    <div class="hero">
-     <div class="hero-grid">
-      <div class="hero-text">
-      <h1>Aldi Indrawan</h1>
-      <p class="lead">
-        Saya <strong>fullstack developer</strong> yang juga menekuni desain antarmuka dan pengembangan <strong>AI agent</strong>. Saat ini saya menempuh S2 Ilmu Komputer di <strong>Universitas Gadjah Mada</strong>, Yogyakarta.
-        Saya senang menggabungkan tampilan yang rapi, sistem yang andal, dan kecerdasan buatan menjadi produk yang mudah dipakai. Saya terbiasa belajar dengan cepat, bekerja dalam tim, dan menyelesaikan pekerjaan dengan teliti.
-      </p>
-
-      <form class="search" role="search" onsubmit="return false">
-        <label for="q">Cari di proyek saya</label>
-        <input id="q" type="search" placeholder="Coba: next.js, php, java, docker" autocomplete="off">
-        <div class="chips" aria-label="Contoh pencarian">
-          <button class="chip" type="button" data-q="next.js">Next.js</button>
-          <button class="chip" type="button" data-q="php">PHP</button>
-          <button class="chip" type="button" data-q="java">Java</button>
-          <button class="chip" type="button" data-q="docker">Docker</button>
-          <button class="chip" type="button" data-q="oauth">Google OAuth</button>
-        </div>
-        <p class="status" id="status" role="status" aria-live="polite"></p>
-      </form>
-      </div>
-      <figure class="hero-photo"><img src="images/aldi-profil.webp" width="720" height="720" alt="Foto Aldi Indrawan"></figure>
-     </div>
-    </div>
-
-    <section id="proyek" aria-labelledby="h-proyek">
-      <h2 id="h-proyek">Proyek</h2>
-
-      <!-- Proyek utama -->
-      <article class="project featured" data-tags="siruangan peminjaman ruangan booking approval dashboard next.js react tailwind shadcn fastapi python sqlite docker github actions cloudflare google oauth dark mode agile scrum kampus ugm fullstack typescript">
-        <div>
-          <h3>SiRuangan: sistem peminjaman ruangan kampus UGM</h3>
-          <p class="desc">Aplikasi fullstack untuk mengajukan dan menyetujui peminjaman ruangan di lingkungan kampus. Dikerjakan tim empat orang dengan metode Agile/Scrum. Peran saya ada di fitur booking, dashboard persetujuan, dan penyambungan antarmuka dengan API.</p>
-          <h4>Yang saya kerjakan</h4>
-          <ul class="role">
-            <li>Membuat endpoint API booking di backend FastAPI.</li>
-            <li>Membangun dashboard persetujuan untuk admin di Next.js. Awalnya datanya tertanam di kode, lalu saya ubah agar dinamis dan terhubung ke database.</li>
-            <li>Membuat halaman profil pengguna yang terhubung dengan Google OAuth.</li>
-            <li>Merancang jendela detail booking yang responsif dari halaman riwayat, lengkap dengan mode gelap.</li>
-            <li>Memperbaiki routing proxy <code>/api</code> di Next.js (trailing slash dan redirect basePath ganda) supaya permintaan sampai ke backend dengan benar.</li>
-          </ul>
-        </div>
-        <aside class="side" aria-label="Ringkasan SiRuangan">
-          <dl>
-            <dt>Frontend</dt><dd>Next.js, React, Tailwind CSS, shadcn/ui</dd>
-            <dt>Backend</dt><dd>Python, FastAPI</dd>
-            <dt>Database dan deploy</dt><dd>SQLite, Docker, GitHub Actions, Cloudflare Tunnel</dd>
-            <dt>Alur kerja</dt><dd>Pull request di GitHub, sekitar 70 commit di repo ini</dd>
-          </dl>
-          <ul class="tags">
-            <li>Next.js</li><li>FastAPI</li><li>Docker</li><li>OAuth</li>
-          </ul>
-          <p class="note">Repositori saya adalah fork dari repo tim (ihdamem/PPL).</p>
-          <div class="links">
-            <a href="https://github.com/aldiindraw/Boking-Ruangan-Universitas-Gadjah-Mada">Kode di GitHub</a>
-          </div>
-        </aside>
-
-        <div class="shots">
-          <figure>
-            <img src="images/siruangan-landing.webp" width="1400" height="698" loading="lazy"
-                 alt="Landing page SiRuangan: judul Sistem Peminjaman Ruangan Kampus UGM, tombol Masuk Portal, dan kartu contoh status ruangan tersedia, pending, dan penuh.">
-            <figcaption>Landing page SiRuangan.</figcaption>
-          </figure>
-          <figure>
-            <img src="images/siruangan-approval.webp" width="1140" height="500" loading="lazy"
-                 alt="Dashboard Approval untuk admin: dua pengajuan peminjaman menunggu keputusan, masing-masing dengan tombol Setujui dan Tolak.">
-            <figcaption>Dashboard approval untuk admin, bagian yang saya kerjakan. Pengajuan yang menunggu bisa disetujui atau ditolak.</figcaption>
-          </figure>
-          <figure>
-            <img src="images/siruangan-riwayat.webp" width="1000" height="700" loading="lazy"
-                 alt="Halaman Riwayat Peminjaman: lima pengajuan dengan status Approved, Pending, dan Rejected beserta tanggal dan jam.">
-            <figcaption>Riwayat peminjaman dengan status tiap pengajuan.</figcaption>
-          </figure>
-          <figure>
-            <img src="images/siruangan-modal-gelap.webp" width="1000" height="700" loading="lazy"
-                 alt="Jendela detail booking dalam mode gelap: judul rapat, status Approved, tanggal, waktu, dan ID peminjaman.">
-            <figcaption>Jendela detail booking dengan mode gelap, juga bagian yang saya kerjakan.</figcaption>
-          </figure>
-        </div>
-        <p class="shots-note">Tangkapan layar diambil dari aplikasi yang saya jalankan di komputer lokal dengan akun uji coba dan data contoh.</p>
-      </article>
-
-      <!-- Proyek lain -->
-      <article class="project row" data-tags="stbi openmrs bm25 information retrieval temu balik informasi java lucene python maven rekam medis mtsamples evaluasi ablation riset kelompok">
-        <div>
-          <h3>Mesin pencari catatan medis berbasis BM25</h3>
-          <p class="meta">Proyek kelompok mata kuliah Sistem Temu Balik Informasi, Ilmu Komputer UGM.</p>
-          <ul class="tags"><li>Java</li><li>Apache Lucene</li><li>Python</li><li>OpenMRS</li></ul>
-        </div>
-        <div>
-          <p>Mesin pencari untuk catatan klinis teks bebas yang dipasang sebagai modul di OpenMRS. Proyek ini membandingkan lima varian pencarian, mulai dari BM25 polos sampai normalisasi istilah klinis (negasi, singkatan, sinonim), pada 2.316 dokumen MTSamples dan 50 query.</p>
-          <table>
-            <caption>Hasil evaluasi (K = 10)</caption>
-            <thead><tr><th>Varian</th><th class="num">P@10</th><th class="num">nDCG@10</th></tr></thead>
-            <tbody>
-              <tr><td>BM25 polos</td><td class="num">0,540</td><td class="num">0,683</td></tr>
-              <tr><td>Normalisasi klinis</td><td class="num">0,542</td><td class="num">0,687</td></tr>
-            </tbody>
-          </table>
-          <p class="meta">Selisihnya kecil. Hasil yang bisa dipegang: normalisasi klinis tidak menurunkan kualitas peringkat dan waktu responsnya sekitar 3,6 kali lebih cepat. Penilaian relevansinya semi-otomatis, dan itu dicatat sebagai keterbatasan di laporan proyek.</p>
-          <div class="shots">
-            <figure>
-              <img src="images/stbi-hasil-pencarian.webp" width="1440" height="420" loading="lazy"
-                   alt="Halaman IR BM25 Search di OpenMRS. Kueri &quot;shortness of breath and chest pain&quot; dengan varian Klinis + ekspansi menampilkan lima dokumen beserta skor, spesialisasi, dan cuplikan teks.">
-              <figcaption>Pencarian di dalam OpenMRS: kueri "shortness of breath and chest pain" dengan varian klinis + ekspansi.</figcaption>
-            </figure>
-            <figure>
-              <img src="images/stbi-bandingkan-varian.webp" width="1440" height="775" loading="lazy"
-                   alt="Mode Bandingkan semua varian untuk kueri &quot;hypertension&quot;: hasil tiga teratas dari BM25 polos, normalisasi klinis, klinis + ekspansi, char n-gram, dan klinis + ekspansi + PRF ditampilkan berdampingan.">
-              <figcaption>Mode "Bandingkan semua" menampilkan hasil kelima varian untuk satu kueri ("hypertension").</figcaption>
-            </figure>
-          </div>
-          <div class="links"><a href="https://github.com/aldiindraw/stbi-openmrs-bm25">Kode di GitHub</a></div>
-        </div>
-      </article>
-
-      <article class="project row" data-tags="toko sepatu online e-commerce php mysql admin customer keranjang checkout produk login register web">
-        <div>
-          <h3>Toko Sepatu Online</h3>
-          <ul class="tags"><li>PHP</li><li>MySQL</li><li>CSS</li></ul>
-        </div>
-        <div>
-          <p>Toko online dengan dua sisi: pelanggan dan admin. Pelanggan bisa mendaftar, masuk, melihat katalog dan detail produk, memakai keranjang, lalu checkout. Admin punya area sendiri untuk mengelola toko.</p>
-          <div class="shots">
-            <figure>
-              <img src="images/toko-produk.webp" width="1400" height="631" loading="lazy"
-                   alt="Halaman depan Sepatu Keren: daftar lima produk sepatu dengan foto, harga, stok, dan tombol Lihat Detail.">
-              <figcaption>Daftar produk di halaman depan.</figcaption>
-            </figure>
-            <figure>
-              <img src="images/toko-detail.webp" width="1400" height="875" loading="lazy"
-                   alt="Halaman detail produk: foto sepatu basket, harga, stok tersedia, pilihan jumlah, dan tombol Tambah ke Keranjang.">
-              <figcaption>Detail produk dengan pilihan jumlah dan tombol keranjang.</figcaption>
-            </figure>
-          </div>
-          <p class="shots-note">Dijalankan di komputer lokal. Foto produk berasal dari folder gambar di repositori, sedangkan nama dan harga produk adalah data contoh.</p>
-          <div class="links"><a href="https://github.com/aldiindraw/TOKO-SEPATU-ONLINE">Kode di GitHub</a></div>
-        </div>
-      </article>
-
-      <article class="project row" data-tags="perpustakaan online library sistem informasi php mysql katalog member denda laporan admin berita kontak login register web">
-        <div>
-          <h3>Perpustakaan Online</h3>
-          <ul class="tags"><li>PHP</li><li>MySQL</li><li>HTML</li></ul>
-        </div>
-        <div>
-          <p>Sistem informasi perpustakaan sekolah: katalog buku, pendaftaran dan login anggota, halaman admin, pencatatan denda keterlambatan, halaman berita dan kontak, serta laporan yang bisa dicetak.</p>
-          <div class="shots">
-            <figure>
-              <img src="images/perpus-beranda.webp" width="1400" height="875" loading="lazy"
-                   alt="Beranda E-Perpus SMKS Siti Banun: judul sambutan, tombol Masuk ke Sistem dan Daftar Sebagai Member, serta kolom pencarian buku di atas latar rak buku.">
-              <figcaption>Beranda dengan pencarian buku.</figcaption>
-            </figure>
-            <figure>
-              <img src="images/perpus-katalog.webp" width="1060" height="600" loading="lazy"
-                   alt="Katalog Jenis Buku: empat kartu buku dengan sampul, judul, penulis, kategori, dan tombol Pinjam.">
-              <figcaption>Katalog buku dengan tombol pinjam.</figcaption>
-            </figure>
-          </div>
-          <p class="shots-note">Dijalankan di komputer lokal dengan data dari file SQL di repositori.</p>
-          <div class="links"><a href="https://github.com/aldiindraw/PERPUSTAKAAN_ONLINE">Kode di GitHub</a></div>
-        </div>
-      </article>
-
-      <p id="empty" class="status" hidden>Tidak ada proyek yang cocok. Coba kata lain, misalnya php, java, docker, atau oauth.</p>
-    </section>
-
-    <section id="keahlian" aria-labelledby="h-skill">
-      <h2 id="h-skill">Keahlian</h2>
-      <div class="stack">
-        <div><h3>Bahasa</h3><p>PHP, JavaScript dan TypeScript, Python, Java, SQL</p></div>
-        <div><h3>Web</h3><p>Next.js, React, Tailwind CSS, shadcn/ui, FastAPI</p></div>
-        <div><h3>Data dan infrastruktur</h3><p>MySQL, SQLite, Docker, GitHub Actions</p></div>
-        <div><h3>Desain</h3><p>Desain grafis dan konten visual di Canva, desain antarmuka dan pengalaman pengguna, prototipe, serta sistem desain yang konsisten di mode terang dan gelap</p></div>
-        <div><h3>AI agent</h3><p>Perancangan agen berbasis LLM, otomasi alur kerja, integrasi tool dan API, serta pencarian informasi (information retrieval)</p></div>
-        <div><h3>Cara kerja</h3><p>Git dan pull request, Agile/Scrum, pengembangan dalam tim</p></div>
-      </div>
-    </section>
-
-    <section id="kontak" class="contact" aria-labelledby="h-kontak">
-      <h2 id="h-kontak">Kontak</h2>
-      <p>Terbuka untuk kolaborasi dan peluang kerja. Cara tercepat menghubungi saya lewat WhatsApp atau email.</p>
-      <div class="contact-actions">
-        <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=indrawan.aldi17@gmail.com&su=Halo%20Aldi" target="_blank" rel="noopener">Kirim email</a>
-        <a class="btn btn-wa" href="https://wa.me/6281273310959?text=Halo%20Aldi%2C%20saya%20melihat%20portofolio%20Anda." target="_blank" rel="noopener">WhatsApp</a>
-        <button class="btn btn-ghost" id="copy-mail" type="button" data-mail="indrawan.aldi17@gmail.com">Salin email</button>
-      </div>
-      <p class="mail-line">WhatsApp: <a href="https://wa.me/6281273310959" target="_blank" rel="noopener">0812-7331-0959</a> · Email: <a href="mailto:indrawan.aldi17@gmail.com">indrawan.aldi17@gmail.com</a></p>
-      <div class="social">
-        <a href="https://github.com/aldiindraw">GitHub</a>
-        <a href="https://www.linkedin.com/in/aldi-indrawan-256329386/">LinkedIn</a>
-        <a href="https://www.researchgate.net/profile/Aldi-Indrawan">ResearchGate</a>
-        <a href="https://www.instagram.com/aldiindrawann/">Instagram</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>Aldi Indrawan, Yogyakarta.</footer>
-</div>
-
-<script>
-(function () {
-  // Tema
-  var root = document.documentElement;
-  try {
-    var saved = localStorage.getItem('theme');
-    if (saved) root.setAttribute('data-theme', saved);
-  } catch (e) {}
-  document.getElementById('theme').addEventListener('click', function () {
-    var isDark = root.getAttribute('data-theme') === 'dark' ||
-      (!root.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    var next = isDark ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    try { localStorage.setItem('theme', next); } catch (e) {}
-  });
-
-  // Pencarian proyek
-  var input = document.getElementById('q');
-  var status = document.getElementById('status');
-  var empty = document.getElementById('empty');
-  var projects = Array.prototype.slice.call(document.querySelectorAll('.project'));
-
-  function run() {
-    var terms = input.value.toLowerCase().split(/\s+/).filter(Boolean);
-    var shown = 0;
-    projects.forEach(function (p) {
-      var hay = (p.getAttribute('data-tags') + ' ' + p.textContent).toLowerCase();
-      var ok = terms.every(function (t) { return hay.indexOf(t) !== -1; });
-      p.hidden = !ok;
-      if (ok) shown++;
-    });
-    empty.hidden = shown !== 0;
-    status.textContent = terms.length
-      ? shown + ' dari ' + projects.length + ' proyek cocok dengan "' + input.value.trim() + '".'
-      : '';
-  }
-  input.addEventListener('input', run);
-  Array.prototype.forEach.call(document.querySelectorAll('.chip'), function (c) {
-    c.addEventListener('click', function () {
-      input.value = c.getAttribute('data-q');
-      run();
-      input.focus();
-    });
-  });
-})();
-
-(function(){var b=document.getElementById('copy-mail');if(!b)return;b.addEventListener('click',function(){var m=b.dataset.mail,t=b.textContent;
-function ok(){b.textContent='Tersalin!';setTimeout(function(){b.textContent=t},1800)}
-if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(m).then(ok,function(){prompt('Salin email:',m)})}else{prompt('Salin email:',m)}})})();
-</script>
-</body>
-</html>
+<!DOCTYPE html><!--v55AUsFvLtfyUzaBBdvYr--><html lang="id" class="__variable_7e1b9e __variable_1c3dce __variable_3d904d"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/_next/static/media/7cb8e1b9ab81be17-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/_next/static/media/a7560406a8617b28-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/_next/static/media/a865edea076e0166-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/_next/static/media/e872e3f251959e82-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" as="image" href="/images/aldi-hero.webp" fetchPriority="high"/><link rel="stylesheet" href="/_next/static/css/b4dd8dd8252c186e.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-ed8e2a1e6df627e3.js"/><script src="/_next/static/chunks/4bd1b696-c023c6e3521b1417.js" async=""></script><script src="/_next/static/chunks/255-9acdc15b78d766e6.js" async=""></script><script src="/_next/static/chunks/main-app-2d4230d0b7ab29e7.js" async=""></script><script src="/_next/static/chunks/691-4ffe289271fd5403.js" async=""></script><script src="/_next/static/chunks/app/page-93914a0daf25bd91.js" async=""></script><meta name="next-size-adjust" content=""/><meta name="theme-color" content="#f4f2ee"/><title>Aldi Indrawan | Fullstack Developer, Desainer UI dan AI Agent</title><meta name="description" content="Portofolio Aldi Indrawan: fullstack developer, desainer antarmuka, dan pengembang AI agent. Mahasiswa S2 Ilmu Komputer Universitas Gadjah Mada."/><link rel="icon" href="/favicon.svg"/><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body><div hidden=""><!--$--><!--/$--></div><div class="nv-bar" style="transform:scaleX(0)" aria-hidden="true"></div><header class="nv "><a href="#top" class="nv-brand" aria-label="Aldi Indrawan, ke atas"><span class="nv-mark">AI</span><span class="nv-name">Aldi Indrawan</span></a><nav class="nv-pill" aria-label="Navigasi utama"><a data-id="about" href="#about" class="">Tentang</a><a data-id="skills" href="#skills" class="">Keahlian</a><a data-id="work" href="#work" class="">Proyek</a><a data-id="contact" href="#contact" class="">Kontak</a></nav><button class="nv-menu" aria-label="Buka menu" aria-expanded="false">Menu</button></header><div class="ov " aria-hidden="true" role="dialog" aria-label="Menu"><button class="ov-x" aria-label="Tutup menu">Tutup ✕</button><ol><li style="--i:0"><a href="#about" tabindex="-1"><small>0<!-- -->1</small>Tentang</a></li><li style="--i:1"><a href="#skills" tabindex="-1"><small>0<!-- -->2</small>Keahlian</a></li><li style="--i:2"><a href="#work" tabindex="-1"><small>0<!-- -->3</small>Proyek</a></li><li style="--i:3"><a href="#contact" tabindex="-1"><small>0<!-- -->4</small>Kontak</a></li></ol></div><style>
+        .nv-bar{position:fixed;inset:0 0 auto 0;height:2px;background:var(--ink);transform-origin:left;z-index:60}
+        .nv{position:fixed;top:14px;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding-inline:var(--gutter);pointer-events:none}
+        .nv>*{pointer-events:auto}
+        .nv-brand{display:flex;align-items:center;gap:12px}
+        .nv-mark{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:14px;letter-spacing:-.02em;box-shadow:inset 0 0 0 1.5px var(--ink);background:transparent;color:var(--ink);transition:background .4s var(--ease),color .4s,transform .8s var(--ease)}
+        .nv-brand:hover .nv-mark{transform:rotate(360deg)}
+        .is-scrolled .nv-mark{background:var(--ink);color:#fff}
+        .nv-name{font-weight:600;letter-spacing:-.02em;transition:opacity .4s,transform .4s var(--ease)}
+        .is-scrolled .nv-name{opacity:0;transform:translateX(-8px);pointer-events:none}
+        .nv-pill{position:relative;display:flex;gap:2px;padding:5px;border-radius:999px;transition:background .4s,box-shadow .4s,backdrop-filter .4s}
+        .is-scrolled .nv-pill{background:rgba(255,255,255,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 0 0 1px var(--line),0 10px 30px -14px rgba(0,0,0,.25)}
+        .nv-pill a{position:relative;z-index:1;padding:8px 16px;font-size:14px;font-weight:500;border-radius:999px;transition:color .3s}
+        .nv-pill a.on{color:#fff}
+        .nv-ind{position:absolute;z-index:0;top:5px;bottom:5px;left:0;border-radius:999px;background:var(--ink);transition:transform .6s var(--ease),width .6s var(--ease)}
+        .nv-menu{display:none;padding:10px 18px;border-radius:999px;font-weight:600;font-size:14px;background:rgba(255,255,255,.8);backdrop-filter:blur(10px);box-shadow:0 0 0 1px var(--line)}
+        .ov{position:fixed;inset:0;z-index:70;background:var(--paper);clip-path:circle(0 at calc(100% - 50px) 36px);transition:clip-path .8s var(--ease);visibility:hidden;padding:90px var(--gutter) 40px;display:flex;flex-direction:column;justify-content:center}
+        .ov.open{clip-path:circle(150% at calc(100% - 50px) 36px);visibility:visible}
+        .ov-x{position:absolute;top:18px;right:var(--gutter);padding:10px 18px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line);font-weight:600;font-size:14px}
+        .ov ol{list-style:none;margin:0;padding:0}
+        .ov li{overflow:hidden;opacity:0;transform:translateY(30px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:calc(var(--i)*70ms + 200ms)}
+        .ov.open li{opacity:1;transform:none}
+        .ov li a{display:flex;align-items:baseline;gap:16px;font-size:clamp(2.6rem,13vw,4.5rem);font-weight:700;letter-spacing:-.045em;line-height:1.15}
+        .ov li small{font-family:var(--f-mono);font-size:13px;font-weight:400;color:var(--mute);letter-spacing:.05em}
+        @media (max-width:760px){.nv-pill{display:none}.nv-menu{display:block}.nv-name{font-size:15px}}
+      </style><main><section id="top" class="hero" aria-label="Perkenalan"><div class="ghost" aria-hidden="true">ALDI</div><figure class="arch rv"><img src="/images/aldi-hero.webp" width="800" height="1000" alt="Foto Aldi Indrawan" fetchPriority="high"/></figure><div class="wrap hero-copy"><p class="tag rv" style="--i:1">Yogyakarta · S2 Ilmu Komputer UGM</p><h1><span class="rv-mask" style="--i:1"><span>Fullstack</span></span><span class="rv-mask" style="--i:2"><span>Developer<em class="it">.</em></span></span></h1><p class="sub rv" style="--i:3">Desain antarmuka dan <span class="it">AI agent</span>, dari ide sampai produk yang dipakai.</p><div class="cta rv" style="--i:4"><a class="btn btn-primary" href="#work">Lihat proyek</a><a class="btn btn-ghost" href="#contact">Mari bicara</a></div></div><button class="scrollhint" aria-label="Gulir ke bagian Tentang"><span></span></button><style>
+        .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:100px 0 clamp(28px,5vh,56px);overflow:hidden}
+        .ghost{position:absolute;left:50%;top:36%;transform:translate(-50%,-50%);font-weight:800;font-size:clamp(9rem,36vw,34rem);letter-spacing:-.06em;line-height:.8;color:transparent;-webkit-text-stroke:1.5px rgba(13,13,13,.12);user-select:none;white-space:nowrap;animation:drift 14s ease-in-out infinite alternate}
+        @keyframes drift{from{transform:translate(-52%,-50%)}to{transform:translate(-48%,-50%)}}
+        .arch{position:absolute;left:50%;top:clamp(76px,10vh,104px);translate:-50% 0;margin:0;height:min(54svh,540px);aspect-ratio:4/5;border-radius:999px 999px 28px 28px;overflow:hidden;background:var(--soft);box-shadow:0 0 0 1px var(--line),0 40px 80px -30px rgba(0,0,0,.35)}
+        .arch img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+        .hero-copy{position:relative;margin-top:min(54svh,540px)}
+        .hero h1{font-weight:700;font-size:clamp(3rem,8.2vw,8rem);line-height:.95;letter-spacing:-.055em;margin:-.42em 0 0;white-space:nowrap;position:relative}
+        .hero h1 .rv-mask{display:inline-block;margin-right:.22em;padding-bottom:.08em}
+        .sub{font-size:clamp(1.05rem,2vw,1.4rem);color:var(--ink-2);margin:14px 0 22px;max-width:30em;letter-spacing:-.01em}
+        .sub .it{font-size:1.15em}
+        .cta{display:flex;gap:12px;flex-wrap:wrap}
+        .hero-copy .tag{position:absolute;left:var(--gutter);top:-5.2em;margin:0}
+        .scrollhint{position:absolute;right:var(--gutter);bottom:36px;width:28px;height:46px;border-radius:999px;box-shadow:inset 0 0 0 1.5px var(--ink)}
+        .scrollhint span{position:absolute;left:50%;top:9px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--ink);animation:wheel 1.8s var(--ease) infinite}
+        @keyframes wheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(16px)}}
+        @media (max-width:760px){.arch{height:min(46svh,400px)}.hero-copy{margin-top:min(46svh,400px)}.hero h1{white-space:normal;font-size:clamp(3rem,15vw,5rem);margin-top:-.2em}.hero h1 .rv-mask{display:block}.hero-copy .tag{position:static;margin:16px 0 12px}.scrollhint{display:none}.ghost{top:30%}}
+      </style></section><section id="about" class="sec about" aria-labelledby="h-about"><div class="wrap grid"><div class="left"><p class="tag rv">01 — Tentang saya</p><h2 id="h-about" class="h2"><span class="rv-mask"><span>Halo, saya <!-- -->Aldi<em>.</em></span></span></h2><p class="p rv" style="--i:1">Saya fullstack developer yang juga menekuni desain antarmuka dan pengembangan AI agent. Saat ini saya menempuh S2 Ilmu Komputer di Universitas Gadjah Mada, Yogyakarta.</p><p class="p rv" style="--i:2">Saya senang menggabungkan tampilan yang rapi, sistem yang andal, dan kecerdasan buatan menjadi produk yang mudah dipakai. Saya terbiasa belajar dengan cepat, bekerja dalam tim, dan menyelesaikan pekerjaan dengan teliti.</p><div class="row rv" style="--i:3"><a class="btn btn-primary" href="https://github.com/aldiindraw" target="_blank" rel="noopener">GitHub ↗</a><a class="btn btn-ghost" href="https://www.linkedin.com/in/aldi-indrawan-256329386/" target="_blank" rel="noopener">LinkedIn ↗</a></div></div><div class="lan-wrap"><div class="lan"><div class="strap" aria-hidden="true"><div class="strap-in"><span>Aldi Indrawan<!-- --> · <!-- -->Fullstack Developer<!-- --> · </span><span>Aldi Indrawan<!-- --> · <!-- -->Fullstack Developer<!-- --> · </span><span>Aldi Indrawan<!-- --> · <!-- -->Fullstack Developer<!-- --> · </span><span>Aldi Indrawan<!-- --> · <!-- -->Fullstack Developer<!-- --> · </span></div></div><div class="clip" aria-hidden="true"></div><div class="card " role="button" tabindex="0" aria-pressed="false" aria-label="Kartu ID. Tekan untuk membalik."><div class="face front"><div class="band"><span>DEVELOPER ID</span><i></i></div><div class="ph"><img src="/images/portrait-bust.webp" width="480" height="600" alt="Potret Aldi Indrawan" loading="lazy"/></div><h3>Aldi Indrawan</h3><p class="role">Fullstack Developer</p><dl><div><dt>Kampus</dt><dd>UGM</dd></div><div><dt>Program</dt><dd>S2 Ilmu Komputer</dd></div><div><dt>Lokasi</dt><dd>Yogyakarta</dd></div></dl><div class="foot"><div class="bars" aria-hidden="true"></div><div class="holo" aria-hidden="true"></div></div></div><div class="face back"><p class="tag">Siapa saya</p><ul><li>Fullstack developer</li><li>Menekuni desain antarmuka</li><li>Mengembangkan AI agent</li><li>Mahasiswa S2 Ilmu Komputer, UGM</li><li>Proyek: SiRuangan, mesin pencari medis, toko online, perpustakaan online</li></ul><p class="sign">Aldi Indrawan</p><p class="found">Kalau kartu ini ketemu, sapa saya di <!-- -->indrawan.aldi17@gmail.com</p></div></div></div><style>
+        .lan-wrap{position:relative;height:560px;display:flex;justify-content:center}
+        .lan{position:absolute;top:-140px;left:50%;margin-left:-150px;width:300px;transform-origin:150px 0;will-change:transform;perspective:1200px;display:flex;flex-direction:column;align-items:center}
+        .strap{width:30px;height:230px;background:#111;overflow:hidden;position:relative;border-radius:0 0 2px 2px}
+        .strap-in{position:absolute;left:50%;top:0;writing-mode:vertical-rl;color:#fff;font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;transform:translateX(-50%);animation:strapmove 14s linear infinite}
+        @keyframes strapmove{from{transform:translate(-50%,0)}to{transform:translate(-50%,-50%)}}
+        .clip{width:22px;height:34px;margin-top:-2px;border-radius:3px 3px 8px 8px;background:linear-gradient(90deg,#8d8d8d,#e8e8e8 40%,#9a9a9a);box-shadow:0 2px 6px rgba(0,0,0,.3);position:relative;z-index:2}
+        .clip::after{content:"";position:absolute;left:50%;bottom:-6px;width:10px;height:10px;margin-left:-5px;border-radius:50%;border:2px solid #9a9a9a;background:var(--paper)}
+        .card{position:relative;z-index:1;width:300px;height:404px;margin-top:-4px;transform-style:preserve-3d;transition:transform .9s var(--ease);cursor:pointer;border-radius:24px}
+        .card.flip{transform:rotateY(180deg)}
+        .face{position:absolute;inset:0;border-radius:24px;background:#fff;box-shadow:inset 0 0 0 1px var(--line),0 30px 60px -24px rgba(0,0,0,.35);backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;padding:0 24px 20px;display:flex;flex-direction:column;align-items:center}
+        .back{transform:rotateY(180deg);align-items:flex-start;padding-top:26px}
+        .band{align-self:stretch;margin:0 -24px;background:#0d0d0d;color:#fff;font-family:var(--f-mono);font-size:11px;letter-spacing:.2em;display:flex;align-items:center;justify-content:center;gap:10px;height:40px}
+        .band i{width:34px;height:6px;border-radius:3px;background:#444}
+        .ph{margin-top:16px;width:128px;height:156px;border-radius:20px;padding:4px;background:linear-gradient(160deg,#ddd,#9c9c9c);box-shadow:0 0 0 6px rgba(0,0,0,.04),0 14px 30px -12px rgba(0,0,0,.4);overflow:hidden}
+        .ph img{width:100%;height:100%;object-fit:cover;border-radius:16px;transition:transform .8s var(--ease)}
+        .card:hover .ph img{transform:scale(1.06)}
+        .front h3{margin:14px 0 0;font-size:22px;font-weight:700;letter-spacing:-.03em;line-height:1.1}
+        .role{margin:2px 0 10px;color:var(--mute);font-size:14px}
+        .front dl{align-self:stretch;margin:0;font-size:12.5px}
+        .front dl div{display:flex;justify-content:space-between;padding:4px 0;border-top:1px dashed var(--line)}
+        .front dt{font-family:var(--f-mono);color:var(--mute);text-transform:uppercase;letter-spacing:.06em;font-size:10.5px;padding-top:2px}
+        .front dd{margin:0;font-weight:600}
+        .foot{margin-top:auto;align-self:stretch;display:flex;align-items:center;justify-content:space-between;gap:12px}
+        .bars{height:26px;flex:1;background:repeating-linear-gradient(90deg,#111 0 2px,transparent 2px 4px,#111 4px 5px,transparent 5px 8px,#111 8px 11px,transparent 11px 12px)}
+        .holo{width:34px;height:34px;border-radius:50%;background:conic-gradient(from 0deg,#eee,#9a9a9a,#f6f6f6,#777,#e5e5e5,#aaa,#eee);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+        .back .tag{margin:0 0 10px}
+        .back ul{margin:0;padding-left:18px;font-size:14px;display:grid;gap:7px;color:var(--ink-2)}
+        .sign{font-family:var(--f-serif);font-style:italic;font-size:30px;margin:auto 0 4px;line-height:1}
+        .found{margin:0;font-size:12px;color:var(--mute)}
+        @media (max-width:980px){.lan-wrap{height:520px}.lan{top:-110px}}
+      </style></div><aside class="right rv" aria-label="Fakta singkat"><p class="tag">Fakta singkat</p><dl><div><dt>Lokasi</dt><dd>Yogyakarta, Indonesia</dd></div><div><dt>Pendidikan</dt><dd>S2 Ilmu Komputer<!-- -->, <!-- -->Universitas Gadjah Mada</dd></div><div><dt>Fokus</dt><dd>Fullstack, desain antarmuka, AI agent</dd></div><div><dt>Email</dt><dd><a href="mailto:indrawan.aldi17@gmail.com">indrawan.aldi17@gmail.com</a></dd></div></dl><blockquote>“<!-- -->Tampilan yang rapi, sistem yang andal, dan AI, dijadikan satu produk yang mudah dipakai.<!-- -->”</blockquote></aside></div><style>
+        .about{overflow:hidden}
+        .about .grid{display:grid;grid-template-columns:minmax(0,1fr) 320px minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:stretch}
+        .about .left{align-self:center}
+        .about .h2{font-size:clamp(2.2rem,4.6vw,4rem);margin-bottom:24px}
+        .about .p{font-size:17px;color:var(--ink-2);margin:0 0 14px;max-width:34em}
+        .about .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+        .about .right{align-self:center}
+        .about .right dl{margin:0}
+        .about .right dl div{padding:14px 0;border-top:1px solid var(--line)}
+        .about .right dt{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+        .about .right dd{margin:2px 0 0;font-weight:600;letter-spacing:-.01em;overflow-wrap:anywhere}
+        .about blockquote{margin:22px 0 0;font-family:var(--f-serif);font-style:italic;font-size:26px;line-height:1.2;color:var(--ink-2)}
+        @media (max-width:980px){.about .grid{grid-template-columns:1fr}.about .lan-wrap{order:-1}.about .left,.about .right{align-self:start}}
+      </style></section><section id="skills" class="sec skills" aria-labelledby="h-skills"><div class="wrap"><p class="tag rv">02 — Keahlian</p><h2 id="h-skills" class="h2"><span class="rv-mask"><span>Tabel periodik <em>teknologi.</em></span></span></h2><p class="lead rv">Setiap teknologi yang saya pakai jadi satu unsur. Arahkan kursor atau ketuk untuk melihat di proyek mana saya memakainya.</p><div class="chips rv" role="group" aria-label="Filter keluarga teknologi"><button class="on" aria-pressed="true">Semua</button><button class="" aria-pressed="false">Bahasa</button><button class="" aria-pressed="false">Frontend</button><button class="" aria-pressed="false">Backend</button><button class="" aria-pressed="false">Data &amp; Infra</button><button class="" aria-pressed="false">Alat</button><button class="" aria-pressed="false">Desain</button><button class="" aria-pressed="false">Konsep</button></div><div class="layout"><div class="tiles "><button class="tile  sel" style="--d:0ms" aria-label="PHP, Bahasa"><small>1</small><b>Ph</b><span>PHP</span></button><button class="tile  " style="--d:40ms" aria-label="JavaScript, Bahasa"><small>2</small><b>Js</b><span>JavaScript</span></button><button class="tile  " style="--d:80ms" aria-label="TypeScript, Bahasa"><small>3</small><b>Ts</b><span>TypeScript</span></button><button class="tile  " style="--d:120ms" aria-label="Python, Bahasa"><small>4</small><b>Py</b><span>Python</span></button><button class="tile  " style="--d:160ms" aria-label="Java, Bahasa"><small>5</small><b>Jv</b><span>Java</span></button><button class="tile  " style="--d:200ms" aria-label="SQL, Bahasa"><small>6</small><b>Sq</b><span>SQL</span></button><button class="tile  " style="--d:240ms" aria-label="Next.js, Frontend"><small>7</small><b>Nx</b><span>Next.js</span></button><button class="tile  " style="--d:280ms" aria-label="React, Frontend"><small>8</small><b>Re</b><span>React</span></button><button class="tile  " style="--d:40ms" aria-label="Tailwind CSS, Frontend"><small>9</small><b>Tw</b><span>Tailwind CSS</span></button><button class="tile  " style="--d:80ms" aria-label="shadcn/ui, Frontend"><small>10</small><b>Sh</b><span>shadcn/ui</span></button><button class="tile  " style="--d:120ms" aria-label="HTML, Frontend"><small>11</small><b>Ht</b><span>HTML</span></button><button class="tile  " style="--d:160ms" aria-label="CSS, Frontend"><small>12</small><b>Cs</b><span>CSS</span></button><button class="tile  " style="--d:200ms" aria-label="FastAPI, Backend"><small>13</small><b>Fa</b><span>FastAPI</span></button><button class="tile  " style="--d:240ms" aria-label="Apache Lucene, Backend"><small>14</small><b>Lu</b><span>Apache Lucene</span></button><button class="tile  " style="--d:280ms" aria-label="OpenMRS, Backend"><small>15</small><b>Om</b><span>OpenMRS</span></button><button class="tile  " style="--d:320ms" aria-label="REST API, Backend"><small>16</small><b>Ap</b><span>REST API</span></button><button class="tile  " style="--d:80ms" aria-label="MySQL, Data &amp; Infra"><small>17</small><b>My</b><span>MySQL</span></button><button class="tile  " style="--d:120ms" aria-label="SQLite, Data &amp; Infra"><small>18</small><b>Sl</b><span>SQLite</span></button><button class="tile  " style="--d:160ms" aria-label="Docker, Data &amp; Infra"><small>19</small><b>Dk</b><span>Docker</span></button><button class="tile  " style="--d:200ms" aria-label="GitHub Actions, Data &amp; Infra"><small>20</small><b>Ga</b><span>GitHub Actions</span></button><button class="tile  " style="--d:240ms" aria-label="Cloudflare, Data &amp; Infra"><small>21</small><b>Cf</b><span>Cloudflare</span></button><button class="tile  " style="--d:280ms" aria-label="Git, Alat"><small>22</small><b>Gt</b><span>Git</span></button><button class="tile  " style="--d:320ms" aria-label="Google OAuth, Alat"><small>23</small><b>Oa</b><span>Google OAuth</span></button><button class="tile  " style="--d:360ms" aria-label="Agile/Scrum, Alat"><small>24</small><b>As</b><span>Agile/Scrum</span></button><button class="tile  " style="--d:120ms" aria-label="Canva, Desain"><small>25</small><b>Cn</b><span>Canva</span></button><button class="tile  " style="--d:160ms" aria-label="UI/UX, Desain"><small>26</small><b>Ux</b><span>UI/UX</span></button><button class="tile  " style="--d:200ms" aria-label="Information Retrieval, Konsep"><small>27</small><b>Ir</b><span>Information Retrieval</span></button><button class="tile  " style="--d:240ms" aria-label="AI Agent, Konsep"><small>28</small><b>Ai</b><span>AI Agent</span></button><button class="tile  " style="--d:280ms" aria-label="LLM, Konsep"><small>29</small><b>Ll</b><span>LLM</span></button><button class="tile  " style="--d:320ms" aria-label="Otomasi alur kerja, Konsep"><small>30</small><b>Ot</b><span>Otomasi alur kerja</span></button></div><aside class="insp" aria-live="polite"><div class="big"><img src="/logos/php.svg" width="150" height="150" alt="" aria-hidden="true" loading="lazy" style="width:150px;height:150px;object-fit:contain"/></div><p class="tag">Bahasa</p><h3>PHP</h3><p class="m">Dipakai di:</p><ul><li>Toko Sepatu Online</li><li>Perpustakaan Online</li></ul></aside></div></div><style>
+        .skills .lead{max-width:36em;color:var(--ink-2);margin:22px 0 26px}
+        .skills .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+        .skills .chips button{padding:7px 16px;border-radius:999px;font-size:14px;font-weight:500;box-shadow:inset 0 0 0 1px var(--line);transition:background .3s,color .3s}
+        .skills .chips button:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+        .skills .chips button.on{background:var(--ink);color:#fff}
+        .skills .layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:28px;align-items:start}
+        .tiles{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px}
+        .tile{position:relative;aspect-ratio:1;border-radius:14px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line);padding:7px 8px;text-align:left;display:flex;flex-direction:column;justify-content:space-between;opacity:0;transform:translateY(14px) scale(.96);transition:opacity .6s var(--ease),transform .6s var(--ease),background .3s,color .3s,box-shadow .3s;transition-delay:0ms}
+        .tiles.go .tile{opacity:1;transform:none;transition-delay:var(--d),var(--d),0ms,0ms,0ms}
+        .tiles.go .tile.dim{opacity:.22}
+        .tile small{font-family:var(--f-mono);font-size:10px;color:var(--mute)}
+        .tile b{font-size:clamp(1.1rem,2.4vw,1.9rem);font-weight:700;letter-spacing:-.04em;line-height:1}
+        .tile span{font-size:clamp(8px,1vw,11px);line-height:1.15;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+        .tile:hover,.tile.sel{background:var(--ink);color:#fff;box-shadow:none}
+        .tile:hover small,.tile.sel small,.tile:hover span,.tile.sel span{color:rgba(255,255,255,.7)}
+        .insp{position:sticky;top:90px;background:var(--card);border-radius:28px;padding:26px;box-shadow:inset 0 0 0 1px var(--line),0 30px 60px -34px rgba(0,0,0,.3)}
+        .insp .big{height:170px;display:grid;place-items:center;border-radius:20px;background:var(--paper);margin-bottom:18px;animation:pop .6s var(--ease)}
+        @keyframes pop{from{transform:scale(.8);opacity:0}to{transform:none;opacity:1}}
+        .insp .tag{margin:0 0 4px}
+        .insp h3{margin:0 0 12px;font-size:28px;font-weight:700;letter-spacing:-.035em;line-height:1.1}
+        .insp .m{margin:0 0 6px;color:var(--mute);font-size:14px}
+        .insp ul{margin:0;padding-left:18px;display:grid;gap:3px;font-size:15px}
+        @media (max-width:980px){.skills .layout{grid-template-columns:1fr}.insp{position:static}.tiles{grid-template-columns:repeat(4,minmax(0,1fr))}.tile span{font-size:10px}}
+      </style></section><section id="work" class="sec work" aria-labelledby="h-work"><div class="wrap"><p class="tag rv">03 — Proyek pilihan</p><h2 id="h-work" class="h2"><span class="rv-mask"><span>Yang sudah saya <em>bangun.</em></span></span></h2></div><div class="wrap"><div class="acc rv" role="list"><article role="listitem" class="pn on"><button class="spine" aria-expanded="true" aria-controls="pn-siruangan"><span class="n">01</span><span class="v">SiRuangan</span><span class="plus" aria-hidden="true">+</span></button><div class="body" id="pn-siruangan" aria-hidden="false"><div class="inner"><div class="txt"><p class="tag">01<!-- --> · <!-- -->Peminjaman ruangan kampus UGM</p><h3>SiRuangan</h3><p class="d">Aplikasi fullstack untuk mengajukan dan menyetujui peminjaman ruangan di lingkungan kampus. Dikerjakan tim empat orang dengan metode Agile/Scrum. Peran saya ada di fitur booking, dashboard persetujuan, dan penyambungan antarmuka dengan API.</p><ul class="feat"><li>Endpoint API booking di FastAPI</li><li>Dashboard persetujuan admin di Next.js</li><li>Profil pengguna dengan Google OAuth</li><li>Jendela detail booking dengan mode gelap</li><li>Perbaikan proxy /api di Next.js</li><li>Alur kerja pull request di GitHub</li></ul><div class="chipsrow"><span class="chip"><img src="/logos/nextjs.svg" width="16" height="16" alt="" aria-hidden="true" loading="lazy" style="width:16px;height:16px;object-fit:contain"/>Next.js</span><span class="chip"><img src="/logos/fastapi.svg" width="16" height="16" alt="" aria-hidden="true" loading="lazy" style="width:16px;height:16px;object-fit:contain"/>FastAPI</span><span class="chip"><img src="/logos/docker.svg" width="16" height="16" alt="" aria-hidden="true" loading="lazy" style="width:16px;height:16px;object-fit:contain"/>Docker</span><span class="chip"><img src="/logos/sqlite.svg" width="16" height="16" alt="" aria-hidden="true" loading="lazy" style="width:16px;height:16px;object-fit:contain"/>SQLite</span></div><a class="btn btn-primary" href="https://github.com/aldiindraw/Boking-Ruangan-Universitas-Gadjah-Mada" target="_blank" rel="noopener" tabindex="0">Lihat di GitHub ↗</a></div><div class="shots"><p class="cap">Tangkapan layar asli</p><img src="/images/siruangan-approval.webp" width="1140" height="500" alt="Dashboard Approval untuk admin: dua pengajuan peminjaman menunggu keputusan dengan tombol Setujui dan Tolak." loading="lazy"/><img src="/images/siruangan-landing.webp" width="1400" height="698" alt="Landing page SiRuangan dengan tombol Masuk Portal dan kartu contoh status ruangan." loading="lazy"/><p class="note">Tangkapan layar dari aplikasi yang dijalankan di komputer lokal dengan akun uji coba dan data contoh. Repositori saya adalah fork dari repo tim.</p></div></div></div></article><article role="listitem" class="pn "><button class="spine" aria-expanded="false" aria-controls="pn-bm25"><span class="n">02</span><span class="v">Mesin pencari catatan medis</span><span class="plus" aria-hidden="true">+</span></button><div class="body" id="pn-bm25" aria-hidden="true"><div class="inner"><div class="txt"><p class="tag">02<!-- --> · <!-- -->Proyek kelompok Sistem Temu Balik Informasi</p><h3>Mesin pencari catatan medis</h3><p class="d">Mesin pencari untuk catatan klinis teks bebas yang dipasang sebagai modul di OpenMRS. Membandingkan lima varian pencarian, dari BM25 polos sampai normalisasi istilah klinis (negasi, singkatan, sinonim).</p><ul class="feat"><li>Lima varian pencarian dibandingkan</li><li>2.316 dokumen MTSamples dan 50 query</li><li>Normalisasi klinis tidak menurunkan kualitas</li><li>Waktu respons sekitar 3,6 kali lebih cepat</li><li>Mode bandingkan semua varian</li><li>Keterbatasan dicatat di laporan</li></ul><div class="chipsrow"><span class="chip"><img src="/logos/java.svg" width="16" height="16" alt="" aria-hidden="true" loading="lazy" style="width:16px;height:16px;object-fit:contain"/>Java</span><span class="chip">Apache Lucene</span><span class="chip"><img src="/logos/python.svg" width="16" height="16" alt="" aria-hidden="true" loading="lazy" style="width:16px;height:16px;object-fit:contain"/>Python</span><span class="chip">OpenMRS</span></div><a class="btn btn-primary" href="https://github.com/aldiindraw/stbi-openmrs-bm25" target="_blank" rel="noopener" tabindex="-1">Lihat di GitHub ↗</a></div><div class="shots"><p class="cap">Tangkapan layar asli</p><img src="/images/stbi-hasil-pencarian.webp" width="1440" height="420" alt="Halaman pencarian BM25 di OpenMRS dengan lima dokumen hasil beserta skor dan cuplikan teks." loading="lazy"/><img src="/images/stbi-bandingkan-varian.webp" width="1440" height="775" alt="Mode bandingkan semua varian untuk kueri hypertension, hasil kelima varian berdampingan." loading="lazy"/><p class="note">Hasil evaluasi K=10: BM25 polos P@10 0,540 dan nDCG@10 0,683; normalisasi klinis P@10 0,542 dan nDCG@10 0,687. Selisihnya kecil; penilaian relevansi semi-otomatis.</p></div></div></div></article><article role="listitem" class="pn "><button class="spine" aria-expanded="false" aria-controls="pn-toko"><span class="n">03</span><span class="v">Toko Sepatu Online</span><span class="plus" aria-hidden="true">+</span></button><div class="body" id="pn-toko" aria-hidden="true"><div class="inner"><div class="txt"><p class="tag">03<!-- --> · <!-- -->Toko online dua sisi</p><h3>Toko Sepatu Online</h3><p class="d">Toko online untuk pelanggan dan admin. Pelanggan bisa mendaftar, masuk, melihat katalog dan detail produk, memakai keranjang, lalu checkout. Admin punya area sendiri untuk mengelola toko.</p><ul class="feat"><li>Daftar dan masuk pelanggan</li><li>Katalog dan detail produk</li><li>Keranjang dan checkout</li><li>Area admin terpisah</li></ul><div class="chipsrow"><span class="chip"><img src="/logos/php.svg" width="16" height="16" alt="" aria-hidden="true" loading="lazy" style="width:16px;height:16px;object-fit:contain"/>PHP</span><span class="chip"><img src="/logos/mysql.svg" width="16" height="16" alt="" aria-hidden="true" loading="lazy" style="width:16px;height:16px;object-fit:contain"/>MySQL</span><span class="chip"><img src="/logos/css3.svg" width="16" height="16" alt="" aria-hidden="true" loading="lazy" style="width:16px;height:16px;object-fit:contain"/>CSS</span></div><a class="btn btn-primary" href="https://github.com/aldiindraw/TOKO-SEPATU-ONLINE" target="_blank" rel="noopener" tabindex="-1">Lihat di GitHub ↗</a></div><div class="shots"><p class="cap">Tangkapan layar asli</p><img src="/images/toko-produk.webp" width="1400" height="631" alt="Halaman depan toko: daftar lima produk sepatu dengan harga, stok, dan tombol Lihat Detail." loading="lazy"/><img src="/images/toko-detail.webp" width="1400" height="875" alt="Detail produk sepatu basket dengan pilihan jumlah dan tombol Tambah ke Keranjang." loading="lazy"/><p class="note">Dijalankan di komputer lokal. Nama dan harga produk adalah data contoh.</p></div></div></div></article><article role="listitem" class="pn "><button class="spine" aria-expanded="false" aria-controls="pn-perpus"><span class="n">04</span><span class="v">Perpustakaan Online</span><span class="plus" aria-hidden="true">+</span></button><div class="body" id="pn-perpus" aria-hidden="true"><div class="inner"><div class="txt"><p class="tag">04<!-- --> · <!-- -->Sistem informasi perpustakaan sekolah</p><h3>Perpustakaan Online</h3><p class="d">Sistem informasi perpustakaan sekolah dengan katalog buku, pendaftaran dan login anggota, halaman admin, pencatatan denda keterlambatan, halaman berita dan kontak, serta laporan yang bisa dicetak.</p><ul class="feat"><li>Katalog dan pencarian buku</li><li>Pendaftaran dan login anggota</li><li>Halaman admin</li><li>Denda keterlambatan</li><li>Berita dan kontak</li><li>Laporan yang bisa dicetak</li></ul><div class="chipsrow"><span class="chip"><img src="/logos/php.svg" width="16" height="16" alt="" aria-hidden="true" loading="lazy" style="width:16px;height:16px;object-fit:contain"/>PHP</span><span class="chip"><img src="/logos/mysql.svg" width="16" height="16" alt="" aria-hidden="true" loading="lazy" style="width:16px;height:16px;object-fit:contain"/>MySQL</span><span class="chip"><img src="/logos/html5.svg" width="16" height="16" alt="" aria-hidden="true" loading="lazy" style="width:16px;height:16px;object-fit:contain"/>HTML</span></div><a class="btn btn-primary" href="https://github.com/aldiindraw/PERPUSTAKAAN_ONLINE" target="_blank" rel="noopener" tabindex="-1">Lihat di GitHub ↗</a></div><div class="shots"><p class="cap">Tangkapan layar asli</p><img src="/images/perpus-beranda.webp" width="1400" height="875" alt="Beranda E-Perpus dengan tombol Masuk ke Sistem dan kolom pencarian buku." loading="lazy"/><img src="/images/perpus-katalog.webp" width="1060" height="600" alt="Katalog buku dengan empat kartu buku dan tombol Pinjam." loading="lazy"/><p class="note">Dijalankan di komputer lokal dengan data dari file SQL di repositori.</p></div></div></div></article></div></div><style>
+        .acc{display:flex;gap:10px;height:min(78svh,640px);min-height:560px;margin-top:48px}
+        .pn{position:relative;flex:1 1 0;min-width:0;border-radius:28px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line);overflow:hidden;transition:flex-grow .9s var(--ease),box-shadow .5s}
+        .pn.on{flex-grow:8;box-shadow:inset 0 0 0 1px var(--line),0 30px 70px -36px rgba(0,0,0,.35)}
+        .spine{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:22px 0;transition:opacity .4s}
+        .pn.on .spine{opacity:0;pointer-events:none}
+        .spine .n{font-family:var(--f-mono);font-size:12px;color:var(--mute)}
+        .spine .v{writing-mode:vertical-rl;transform:rotate(180deg);font-weight:700;letter-spacing:-.03em;font-size:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-height:70%}
+        .spine .plus{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 1px var(--line);font-size:18px;transition:transform .6s var(--ease),background .3s,color .3s}
+        .spine:hover .plus{transform:rotate(90deg);background:var(--ink);color:#fff}
+        .body{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .5s .15s,visibility 0s .9s}
+        .pn.on .body{opacity:1;visibility:visible;transition:opacity .6s .25s,visibility 0s}
+        .inner{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:28px;padding:32px;height:100%;min-width:min(900px,100%)}
+        .txt{display:flex;flex-direction:column;min-height:0;overflow:auto;padding-right:6px}
+        .txt .tag{margin:0 0 10px}
+        .txt h3{margin:0 0 12px;font-size:clamp(1.8rem,3.2vw,2.8rem);font-weight:700;letter-spacing:-.045em;line-height:1}
+        .txt .d{margin:0 0 16px;color:var(--ink-2);font-size:15.5px}
+        .feat{list-style:none;margin:0 0 16px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;font-size:14px}
+        .feat li{position:relative;padding-left:16px}
+        .feat li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--ink)}
+        .chipsrow{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+        .chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;padding:4px 12px;border-radius:999px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--line)}
+        .txt .btn{align-self:flex-start;margin-top:auto}
+        .shots{display:flex;flex-direction:column;gap:10px;min-height:0;overflow:auto;clip-path:inset(0 0 0 100%);transition:clip-path 1s var(--ease)}
+        .pn.on .shots{clip-path:inset(0 0 0 0);transition-delay:.3s}
+        .shots .cap{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:0}
+        .shots img{width:100%;height:auto;border-radius:14px;box-shadow:0 0 0 1px var(--line);background:var(--paper)}
+        .shots .note{font-size:12px;color:var(--mute);margin:2px 0 0}
+        @media (max-width:860px){
+          .acc{flex-direction:column;height:auto;min-height:0}
+          .pn{flex:none;transition:none}
+          .spine{position:relative;inset:auto;flex-direction:row;padding:18px 20px;gap:14px;justify-content:flex-start;width:100%}
+          .pn.on .spine{opacity:1;pointer-events:auto}
+          .spine .v{writing-mode:horizontal-tb;transform:none;max-height:none;font-size:18px;flex:1;text-align:left}
+          .spine .plus{margin-left:auto;transition:transform .4s}
+          .pn.on .spine .plus{transform:rotate(45deg)}
+          .body{position:relative;inset:auto;display:none;opacity:1;visibility:visible}
+          .pn.on .body{display:block}
+          .inner{grid-template-columns:1fr;min-width:0;height:auto;padding:4px 20px 22px}
+          .txt{overflow:visible}
+          .txt .tag{display:none}
+          .txt h3{display:none}
+          .feat{grid-template-columns:1fr}
+          .txt .btn{margin-top:4px}
+          .shots{clip-path:none;overflow:visible}
+        }
+      </style></section><section id="contact" class="sec contact" aria-labelledby="h-contact"><div class="wrap"><p class="tag rv">04 — Kontak</p><h2 id="h-contact" class="ct" aria-label="Mari membangun sesuatu bersama."><span aria-hidden="true"><span class="hop">M</span><span class="hop">a</span><span class="hop">r</span><span class="hop">i</span><span> </span><span class="hop">m</span><span class="hop">e</span><span class="hop">m</span><span class="hop">b</span><span class="hop">a</span><span class="hop">n</span><span class="hop">g</span><span class="hop">u</span><span class="hop">n</span></span><br/><span aria-hidden="true" class="it"><span class="hop">s</span><span class="hop">e</span><span class="hop">s</span><span class="hop">u</span><span class="hop">a</span><span class="hop">t</span><span class="hop">u</span><span> </span><span class="hop">b</span><span class="hop">e</span><span class="hop">r</span><span class="hop">s</span><span class="hop">a</span><span class="hop">m</span><span class="hop">a</span><span class="hop">.</span></span></h2><div class="mail rv"><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=indrawan.aldi17@gmail.com&amp;su=Halo%20Aldi" target="_blank" rel="noopener">indrawan.aldi17@gmail.com</a><button class="copy" aria-live="polite">Salin</button></div><div class="links rv" style="--i:1"><a class="btn btn-primary" href="https://wa.me/6281273310959?text=Halo%20Aldi%2C%20saya%20melihat%20portofolio%20Anda." target="_blank" rel="noopener">WhatsApp <!-- -->0812-7331-0959</a><a class="btn btn-ghost" href="https://github.com/aldiindraw" target="_blank" rel="noopener">GitHub ↗</a><a class="btn btn-ghost" href="https://www.linkedin.com/in/aldi-indrawan-256329386/" target="_blank" rel="noopener">LinkedIn ↗</a><a class="btn btn-ghost" href="https://www.instagram.com/aldiindrawann/" target="_blank" rel="noopener">Instagram ↗</a><a class="btn btn-ghost" href="https://www.researchgate.net/profile/Aldi-Indrawan" target="_blank" rel="noopener">ResearchGate ↗</a></div><svg class="badge" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="circ" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"></path></defs><text><textPath href="#circ" startOffset="0">SAY HELLO · SAY HELLO · SAY HELLO · SAY HELLO · </textPath></text><circle cx="60" cy="60" r="22" fill="#0d0d0d"></circle><path d="M52 60h16m-6-6 6 6-6 6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><style>
+        .contact{padding-bottom:60px}
+        .ct{font-weight:700;letter-spacing:-.055em;line-height:.98;font-size:clamp(2.6rem,9vw,8rem);margin:0 0 40px}
+        .ct .it{font-weight:400}
+        .hop{display:inline-block}
+        .hop.go{animation:hop .6s var(--ease)}
+        @keyframes hop{0%{transform:none}35%{transform:translateY(-.16em)}100%{transform:none}}
+        .mail{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-bottom:26px}
+        .mail a{font-size:clamp(1.2rem,3.2vw,2.2rem);font-weight:600;letter-spacing:-.03em;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px;overflow-wrap:anywhere}
+        .copy{padding:6px 16px;border-radius:999px;font-size:13px;font-weight:600;box-shadow:inset 0 0 0 1px var(--line);transition:background .3s,color .3s}
+        .copy:hover{background:var(--ink);color:#fff}
+        .links{display:flex;flex-wrap:wrap;gap:10px}
+        .badge{position:absolute;right:var(--gutter);top:0;width:130px;height:130px;animation:spin 18s linear infinite}
+        .badge text{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.14em;fill:var(--ink)}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        @media (max-width:760px){.badge{display:none}}
+      </style></section></main><footer class="ft"><div class="wrap"><span>© <!-- -->2026<!-- --> <!-- -->Aldi Indrawan</span><a href="#top">Kembali ke atas ↑</a><span>Dibuat dengan Next.js</span></div><style>.ft{border-top:1px solid var(--line);padding:26px 0;font-size:14px;color:var(--mute)}.ft .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}.ft a:hover{color:var(--ink)}</style></footer><!--$--><!--/$--><script src="/_next/static/chunks/webpack-ed8e2a1e6df627e3.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[9766,[],\"\"]\n3:I[8924,[],\"\"]\n4:I[4521,[\"691\",\"static/chunks/691-4ffe289271fd5403.js\",\"974\",\"static/chunks/app/page-93914a0daf25bd91.js\"],\"SmoothScroll\"]\n5:I[4521,[\"691\",\"static/chunks/691-4ffe289271fd5403.js\",\"974\",\"static/chunks/app/page-93914a0daf25bd91.js\"],\"RevealObserver\"]\n6:I[9379,[\"691\",\"static/chunks/691-4ffe289271fd5403.js\",\"974\",\"static/chunks/app/page-93914a0daf25bd91.js\"],\"default\"]\n7:I[3636,[\"691\",\"static/chunks/691-4ffe289271fd5403.js\",\"974\",\"static/chunks/app/page-93914a0daf25bd91.js\"],\"default\"]\n8:I[9735,[\"691\",\"static/chunks/691-4ffe289271fd5403.js\",\"974\",\"static/chunks/app/page-93914a0daf25bd91.js\"],\"default\"]\n9:I[2898,[\"691\",\"static/chunks/691-4ffe289271fd5403.js\",\"974\",\"static/chunks/app/page-93914a0daf25bd91.js\"],\"default\"]\na:I[5467,[\"691\",\"static/chunks/691-4ffe289271fd5403.js\",\"974\",\"static/chunks/app/page-93914a0daf25bd91.js\"],\"default\"]\nb:I[4960,[\"691\",\"static/chunks/691-4ffe289271fd5403.js\",\"974\",\"static/chunks/app/page-93914a0daf25bd91.js\"],\"default\"]\nc:I[4431,[],\"OutletBoundary\"]\ne:I[5278,[],\"AsyncMetadataOutlet\"]\n10:I[4431,[],\"ViewportBoundary\"]\n12:I[4431,[],\"MetadataBoundary\"]\n13:\"$Sreact.suspense\"\n15:I[7150,[],\"\"]\n:HL[\"/_next/static/media/7cb8e1b9ab81be17-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/a7560406a8617b28-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/a865edea076e0166-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/e872e3f251959e82-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/css/b4dd8dd8252c186e.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"v55AUsFvLtfyUzaBBdvYr\",\"p\":\"\",\"c\":[\"\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/b4dd8dd8252c186e.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"id\",\"className\":\"__variable_7e1b9e __variable_1c3dce __variable_3d904d\",\"children\":[\"$\",\"body\",null,{\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"$L4\",null,{}],[\"$\",\"$L5\",null,{}],[\"$\",\"$L6\",null,{}],[\"$\",\"main\",null,{\"children\":[[\"$\",\"$L7\",null,{}],[\"$\",\"$L8\",null,{}],[\"$\",\"$L9\",null,{}],[\"$\",\"$La\",null,{}],[\"$\",\"$Lb\",null,{}]]}],[\"$\",\"footer\",null,{\"className\":\"ft\",\"children\":[[\"$\",\"div\",null,{\"className\":\"wrap\",\"children\":[[\"$\",\"span\",null,{\"children\":[\"© \",2026,\" \",\"Aldi Indrawan\"]}],[\"$\",\"a\",null,{\"href\":\"#top\",\"children\":\"Kembali ke atas ↑\"}],[\"$\",\"span\",null,{\"children\":\"Dibuat dengan Next.js\"}]]}],[\"$\",\"style\",null,{\"children\":\".ft{border-top:1px solid var(--line);padding:26px 0;font-size:14px;color:var(--mute)}.ft .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}.ft a:hover{color:var(--ink)}\"}]]}]],null,[\"$\",\"$Lc\",null,{\"children\":[\"$Ld\",[\"$\",\"$Le\",null,{\"promise\":\"$@f\"}]]}]]}],{},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[[\"$\",\"$L10\",null,{\"children\":\"$L11\"}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]],[\"$\",\"$L12\",null,{\"children\":[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$13\",null,{\"fallback\":null,\"children\":\"$L14\"}]}]}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$15\",[]],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"11:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"2\",{\"name\":\"theme-color\",\"content\":\"#f4f2ee\"}]]\nd:null\n"])</script><script>self.__next_f.push([1,"16:I[622,[],\"IconMark\"]\nf:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"Aldi Indrawan | Fullstack Developer, Desainer UI dan AI Agent\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Portofolio Aldi Indrawan: fullstack developer, desainer antarmuka, dan pengembang AI agent. Mahasiswa S2 Ilmu Komputer Universitas Gadjah Mada.\"}],[\"$\",\"link\",\"2\",{\"rel\":\"icon\",\"href\":\"/favicon.svg\"}],[\"$\",\"$L16\",\"3\",{}]],\"error\":null,\"digest\":\"$undefined\"}\n"])</script><script>self.__next_f.push([1,"14:\"$f:metadata\"\n"])</script></body></html>
