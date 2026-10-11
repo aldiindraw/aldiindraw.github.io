@@ -37,7 +37,7 @@ export default function Work() {
                           <span className="chip" key={t.name}>{t.logo && <TechLogo skill={{ name: t.name, logo: t.logo }} size={16} />}{t.name}</span>
                         ))}
                       </div>
-                      <a className="btn btn-primary" href={p.github} target="_blank" rel="noopener" tabIndex={on ? 0 : -1}>Lihat di GitHub ↗</a>
+                      {p.github && <a className="btn btn-primary" href={p.github} target="_blank" rel="noopener" tabIndex={on ? 0 : -1}>Lihat di GitHub ↗</a>}
                     </div>
                     <div className="shots">
                       <p className="cap">Tangkapan layar asli</p>

@@ -59,6 +59,7 @@ export const SKILLS: Skill[] = [
   { name: "Agile/Scrum", sym: "As", family: "Alat", icon: "loop", projects: [SR] },
   { name: "Canva", sym: "Cn", family: "Desain", logo: "canva", projects: [] },
   { name: "UI/UX", sym: "Ux", family: "Desain", icon: "pen", projects: [SR] },
+  { name: "SketchUp", sym: "Sk", family: "Desain", icon: "cube", projects: ["Desain 3D rumah dua lantai"] },
   { name: "Information Retrieval", sym: "Ir", family: "Konsep", icon: "search", projects: [BM] },
   { name: "AI Agent", sym: "Ai", family: "Konsep", icon: "agent", projects: [] },
   { name: "LLM", sym: "Ll", family: "Konsep", icon: "spark", projects: [] },
@@ -67,7 +68,7 @@ export const SKILLS: Skill[] = [
 
 export type Project = {
   id: string; index: string; title: string; kicker: string; description: string;
-  features: string[]; tech: { name: string; logo?: string }[]; github: string;
+  features: string[]; tech: { name: string; logo?: string }[]; github?: string;
   images: { src: string; alt: string; w: number; h: number }[]; note: string;
 };
 export const PROJECTS: Project[] = [
@@ -130,5 +131,17 @@ export const PROJECTS: Project[] = [
       { src: "/images/perpus-katalog.webp", w: 1060, h: 600, alt: "Katalog buku dengan empat kartu buku dan tombol Pinjam." },
     ],
     note: "Dijalankan di komputer lokal dengan data dari file SQL di repositori.",
+  },
+  {
+    id: "rumah3d", index: "05", title: "Desain 3D rumah dua lantai", kicker: "Pemodelan 3D di SketchUp",
+    description:
+      "Model 3D rumah dua lantai yang saya buat di SketchUp, lengkap dengan atap, jendela dan pintu, balkon lantai atas, taman depan, serta carport. Modelnya dilihat dari beberapa sudut untuk memperlihatkan tata letak ruang luar dan fasad bangunan.",
+    features: ["Rumah dua lantai beratap pelana", "Balkon di lantai atas", "Taman dan carport di depan", "Tangga akses di sisi bangunan", "Fasad dengan jendela besar", "Tampilan dari beberapa sudut"],
+    tech: [{ name: "SketchUp" }],
+    images: [
+      { src: "/images/rumah-3d-1.webp", w: 828, h: 521, alt: "Model 3D rumah dua lantai dilihat dari depan: atap abu-abu, jendela biru berbingkai merah marun, balkon, taman rumput, dan carport." },
+      { src: "/images/rumah-3d-2.webp", w: 828, h: 984, alt: "Dua sudut pandang model 3D rumah dua lantai: tampak dari sisi samping dan dari atas, memperlihatkan balkon berperabot, taman, dan atap." },
+    ],
+    note: "Tangkapan dari model 3D yang saya buat di SketchUp.",
   },
 ];
