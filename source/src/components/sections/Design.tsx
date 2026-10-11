@@ -49,7 +49,7 @@ export default function Design() {
             </li>
           ))}
         </ul>
-        <p className="note">Sebagian karya adalah materi cetak untuk institusi dan masih memuat logo atau watermark aslinya.</p>
+        <p className="note">Wajah, nama, dan nomor telepon pribadi pada materi cetak sengaja diburamkan. Beberapa karya masih memuat logo institusi atau watermark aslinya.</p>
       </div>
 
       {cur && (
