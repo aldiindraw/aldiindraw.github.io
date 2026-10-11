@@ -3,6 +3,7 @@ import Hero from "./hero/Hero";
 import About from "./sections/About";
 import Skills from "./sections/Skills";
 import Work from "./sections/Work";
+import Design from "./sections/Design";
 import Contact from "./sections/Contact";
 import { RevealObserver, SmoothScroll } from "@/lib/scroll";
 import { PROFILE } from "@/lib/data";
@@ -18,6 +19,7 @@ export default function App() {
         <About />
         <Skills />
         <Work />
+        <Design />
         <Contact />
       </main>
       <footer className="ft">

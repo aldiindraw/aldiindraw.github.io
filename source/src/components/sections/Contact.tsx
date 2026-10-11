@@ -21,7 +21,7 @@ export default function Contact() {
   return (
     <section id="contact" className="sec contact" aria-labelledby="h-contact">
       <div className="wrap">
-        <p className="tag rv">04 — Kontak</p>
+        <p className="tag rv">05 — Kontak</p>
         <h2 id="h-contact" className="ct" aria-label="Mari membangun sesuatu bersama.">
           <span aria-hidden><Hop text="Mari membangun" /></span><br />
           <span aria-hidden className="it"><Hop text="sesuatu bersama." /></span>
