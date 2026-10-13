@@ -15,9 +15,9 @@ export default function Skills() {
   return (
     <section id="skills" className="sec skills" aria-labelledby="h-skills">
       <div className="wrap">
-        <p className="tag rv">02 — Keahlian</p>
+        <p className="tag rv">03 — Keahlian</p>
         <h2 id="h-skills" className="h2"><span className="rv-mask"><span>Tabel periodik <em>teknologi.</em></span></span></h2>
-        <p className="lead rv">Setiap teknologi yang saya pakai jadi satu unsur. Arahkan kursor atau ketuk untuk melihat di proyek mana saya memakainya.</p>
+        <p className="lead rv">Setiap keahlian jadi satu unsur. Arahkan kursor atau ketuk untuk melihat di mana saya memakainya. Yang bertanda "CV" berasal dari pengalaman kerja dan riset saya.</p>
         <div className="chips rv" role="group" aria-label="Filter keluarga teknologi">
           {(["Semua", ...FAMILIES] as const).map((f) => (
             <button key={f} className={fam === f ? "on" : ""} aria-pressed={fam === f} onClick={() => setFam(f)}>{f}</button>
@@ -36,6 +36,7 @@ export default function Skills() {
                   aria-label={`${s.name}, ${s.family}`}
                 >
                   <small>{i + 1}</small>
+                  {s.cv && <em className="cvb">CV</em>}
                   <b>{s.sym}</b>
                   <span>{s.name}</span>
                 </button>
@@ -52,7 +53,7 @@ export default function Skills() {
                 <ul>{cur.projects.map((p) => <li key={p}>{p}</li>)}</ul>
               </>
             ) : (
-              <p className="m">Bidang yang saya tekuni di luar proyek publik di GitHub.</p>
+              <p className="m">Keahlian ini tercantum di CV saya dan dipakai dalam pekerjaan dan riset, belum ada proyek publiknya di portofolio ini.</p>
             )}
           </aside>
         </div>
@@ -68,6 +69,8 @@ export default function Skills() {
         .tile{position:relative;aspect-ratio:1;border-radius:14px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line);padding:7px 8px;text-align:left;display:flex;flex-direction:column;justify-content:space-between;opacity:0;transform:translateY(14px) scale(.96);transition:opacity .6s var(--ease),transform .6s var(--ease),background .3s,color .3s,box-shadow .3s;transition-delay:0ms}
         .tiles.go .tile{opacity:1;transform:none;transition-delay:var(--d),var(--d),0ms,0ms,0ms}
         .tiles.go .tile.dim{opacity:.22}
+        .tile .cvb{position:absolute;top:7px;right:8px;font-family:var(--f-mono);font-style:normal;font-size:8.5px;letter-spacing:.06em;padding:1px 5px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line);color:var(--mute)}
+        .tile:hover .cvb,.tile.sel .cvb{color:rgba(255,255,255,.8);box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
         .tile small{font-family:var(--f-mono);font-size:10px;color:var(--mute)}
         .tile b{font-size:clamp(1.1rem,2.4vw,1.9rem);font-weight:700;letter-spacing:-.04em;line-height:1}
         .tile span{font-size:clamp(8px,1vw,11px);line-height:1.15;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}

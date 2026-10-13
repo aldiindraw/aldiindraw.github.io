@@ -21,7 +21,7 @@ export default function Contact() {
   return (
     <section id="contact" className="sec contact" aria-labelledby="h-contact">
       <div className="wrap">
-        <p className="tag rv">05 — Kontak</p>
+        <p className="tag rv">06 — Kontak</p>
         <h2 id="h-contact" className="ct" aria-label="Mari membangun sesuatu bersama.">
           <span aria-hidden><Hop text="Mari membangun" /></span><br />
           <span aria-hidden className="it"><Hop text="sesuatu bersama." /></span>
@@ -35,7 +35,9 @@ export default function Contact() {
           <a className="btn btn-ghost" href={PROFILE.github} target="_blank" rel="noopener">GitHub ↗</a>
           <a className="btn btn-ghost" href={PROFILE.linkedin} target="_blank" rel="noopener">LinkedIn ↗</a>
           <a className="btn btn-ghost" href={PROFILE.instagram} target="_blank" rel="noopener">Instagram ↗</a>
+          <a className="btn btn-ghost" href={PROFILE.scholar} target="_blank" rel="noopener">Google Scholar ↗</a>
           <a className="btn btn-ghost" href={PROFILE.researchgate} target="_blank" rel="noopener">ResearchGate ↗</a>
+          <a className="btn btn-ghost" href={PROFILE.cv} download>Unduh CV ↓</a>
         </div>
         <svg className="badge" viewBox="0 0 120 120" aria-hidden>
           <defs><path id="circ" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" /></defs>

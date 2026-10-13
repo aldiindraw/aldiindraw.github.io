@@ -11,14 +11,15 @@ export default function Hero() {
         <img src="/images/aldi-hero.webp" width={800} height={1000} alt={`Foto ${PROFILE.name}`} fetchPriority="high" />
       </figure>
       <div className="wrap hero-copy">
-        <p className="tag rv" style={{ ["--i" as string]: 1 }}>Yogyakarta · S2 Ilmu Komputer UGM</p>
+        <p className="tag rv" style={{ ["--i" as string]: 1 }}>Yogyakarta · Jaringan · Computer Vision · ITS</p>
         <h1>
-          <span className="rv-mask" style={{ ["--i" as string]: 1 }}><span>Fullstack</span></span>
-          <span className="rv-mask" style={{ ["--i" as string]: 2 }}><span>Developer<em className="it">.</em></span></span>
+          <span className="rv-mask" style={{ ["--i" as string]: 1 }}><span>IT</span></span>
+          <span className="rv-mask" style={{ ["--i" as string]: 2 }}><span>Specialist<em className="it">.</em></span></span>
         </h1>
-        <p className="sub rv" style={{ ["--i" as string]: 3 }}>Desain antarmuka dan <span className="it">AI agent</span>, dari ide sampai produk yang dipakai.</p>
+        <p className="sub rv" style={{ ["--i" as string]: 3 }}>Infrastruktur TI dan jaringan, <span className="it">Computer Vision</span>, serta Intelligent Transportation Systems.</p>
         <div className="cta rv" style={{ ["--i" as string]: 4 }}>
           <a className="btn btn-primary" href="#work" onClick={go("work")}>Lihat proyek</a>
+          <a className="btn btn-ghost" href={PROFILE.cv} download>Unduh CV ↓</a>
           <a className="btn btn-ghost" href="#contact" onClick={go("contact")}>Mari bicara</a>
         </div>
       </div>

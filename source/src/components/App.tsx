@@ -1,6 +1,7 @@
 import Navigation from "./Navigation";
 import Hero from "./hero/Hero";
 import About from "./sections/About";
+import Journey from "./sections/Journey";
 import Skills from "./sections/Skills";
 import Work from "./sections/Work";
 import Design from "./sections/Design";
@@ -17,6 +18,7 @@ export default function App() {
       <main>
         <Hero />
         <About />
+        <Journey />
         <Skills />
         <Work />
         <Design />

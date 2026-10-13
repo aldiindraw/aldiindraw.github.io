@@ -13,8 +13,8 @@ const serif = localFont({
 const mono = localFont({ src: "../fonts/jetbrains-mono-latin-wght-normal.woff2", variable: "--font-mono", display: "swap", weight: "100 800" });
 
 export const metadata: Metadata = {
-  title: "Aldi Indrawan | Fullstack Developer, Desainer UI dan AI Agent",
-  description: "Portofolio Aldi Indrawan: fullstack developer, desainer antarmuka, dan pengembang AI agent. Mahasiswa S2 Ilmu Komputer Universitas Gadjah Mada.",
+  title: "Aldi Indrawan | IT Specialist, Computer Vision & ITS",
+  description: "Portofolio Aldi Indrawan: IT Specialist dengan fokus jaringan dan infrastruktur TI, Computer Vision, dan Intelligent Transportation Systems. Yogyakarta.",
   icons: { icon: "/favicon.svg" },
 };
 export const viewport: Viewport = { themeColor: "#f4f2ee", width: "device-width", initialScale: 1 };

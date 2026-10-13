@@ -30,9 +30,9 @@ export default function Design() {
   return (
     <section id="design" className="sec design" aria-labelledby="h-design">
       <div className="wrap">
-        <p className="tag rv">04 — Desain</p>
+        <p className="tag rv">05 — Desain</p>
         <h2 id="h-design" className="h2"><span className="rv-mask"><span>Karya <em>desain.</em></span></span></h2>
-        <p className="lead rv">Brosur, materi edukasi, dokumen, dan model 3D yang saya buat dengan Canva dan SketchUp. Klik gambar untuk melihatnya lebih besar.</p>
+        <p className="lead rv">Poster, brosur, materi edukasi, dokumen, dan model 3D yang saya buat dengan Canva dan SketchUp. Di CV saya tercatat 30+ materi promosi digital untuk berbagai acara. Klik gambar untuk melihatnya lebih besar.</p>
         <div className="chips rv" role="group" aria-label="Filter jenis desain">
           {["Semua", ...DESIGN_CATS].map((c) => (
             <button key={c} className={cat === c ? "on" : ""} aria-pressed={cat === c} onClick={() => setCat(c)}>{c}</button>

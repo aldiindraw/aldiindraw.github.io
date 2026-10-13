@@ -55,25 +55,25 @@ function Lanyard() {
           onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); } }}
         >
           <div className="face front">
-            <div className="band"><span>DEVELOPER ID</span><i /></div>
+            <div className="band"><span>IT SPECIALIST ID</span><i /></div>
             <div className="ph"><img src="/images/portrait-bust.webp" width={480} height={600} alt={`Potret ${PROFILE.name}`} loading="lazy" /></div>
             <h3>{PROFILE.name}</h3>
             <p className="role">{PROFILE.role}</p>
             <dl>
-              <div><dt>Kampus</dt><dd>UGM</dd></div>
-              <div><dt>Program</dt><dd>S2 Ilmu Komputer</dd></div>
-              <div><dt>Lokasi</dt><dd>Yogyakarta</dd></div>
+              <div><dt>Bidang</dt><dd>CV · ITS</dd></div>
+              <div><dt>Magister</dt><dd>UGM</dd></div>
+              <div><dt>Sarjana</dt><dd>Gunadarma</dd></div>
             </dl>
             <div className="foot"><div className="bars" aria-hidden /><div className="holo" aria-hidden /></div>
           </div>
           <div className="face back">
             <p className="tag">Siapa saya</p>
             <ul>
-              <li>Fullstack developer</li>
-              <li>Menekuni desain antarmuka</li>
-              <li>Mengembangkan AI agent</li>
-              <li>Mahasiswa S2 Ilmu Komputer, UGM</li>
-              <li>Proyek: SiRuangan, mesin pencari medis, toko online, perpustakaan online</li>
+              <li>IT Specialist: jaringan dan infrastruktur TI</li>
+              <li>Computer Vision dan ITS</li>
+              <li>Python, OpenCV, Open3D</li>
+              <li>IT Staff, Institut Teknologi &amp; Kesehatan Ika Bina</li>
+              <li>Magister Ilmu Komputer, UGM · S1 Informatika, Gunadarma</li>
             </ul>
             <p className="sign">{PROFILE.name}</p>
             <p className="found">Kalau kartu ini ketemu, sapa saya di {PROFILE.email}</p>
@@ -126,7 +126,8 @@ export default function About() {
           <p className="p rv" style={{ ["--i" as string]: 1 }}>{PROFILE.summary}</p>
           <p className="p rv" style={{ ["--i" as string]: 2 }}>{PROFILE.summary2}</p>
           <div className="row rv" style={{ ["--i" as string]: 3 }}>
-            <a className="btn btn-primary" href={PROFILE.github} target="_blank" rel="noopener">GitHub ↗</a>
+            <a className="btn btn-primary" href={PROFILE.cv} download>Unduh CV ↓</a>
+            <a className="btn btn-ghost" href={PROFILE.github} target="_blank" rel="noopener">GitHub ↗</a>
             <a className="btn btn-ghost" href={PROFILE.linkedin} target="_blank" rel="noopener">LinkedIn ↗</a>
           </div>
         </div>
@@ -135,8 +136,8 @@ export default function About() {
           <p className="tag">Fakta singkat</p>
           <dl>
             <div><dt>Lokasi</dt><dd>{PROFILE.location}</dd></div>
-            <div><dt>Pendidikan</dt><dd>{PROFILE.program}, {PROFILE.campus}</dd></div>
-            <div><dt>Fokus</dt><dd>Fullstack, desain antarmuka, AI agent</dd></div>
+            <div><dt>Pendidikan</dt><dd>{PROFILE.program}, {PROFILE.campus}; S1 Informatika, Universitas Gunadarma</dd></div>
+            <div><dt>Fokus</dt><dd>Computer Vision, ITS, infrastruktur TI</dd></div>
             <div><dt>Email</dt><dd><a href={`mailto:${PROFILE.email}`}>{PROFILE.email}</a></dd></div>
           </dl>
           <blockquote>“{PROFILE.quote}”</blockquote>

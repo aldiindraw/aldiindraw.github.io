@@ -2,69 +2,117 @@ export const PROFILE = {
   name: "Aldi Indrawan",
   first: "Aldi",
   initials: "AI",
-  role: "Fullstack Developer",
-  email: "indrawan.aldi17@gmail.com",
+  role: "IT Specialist",
+  focus: "Computer Vision & Intelligent Transportation Systems",
+  email: "aldiindrawan@mail.ugm.ac.id",
   phone: "0812-7331-0959",
   phoneHref: "https://wa.me/6281273310959?text=Halo%20Aldi%2C%20saya%20melihat%20portofolio%20Anda.",
-  location: "Yogyakarta, Indonesia",
+  location: "Sleman, Yogyakarta",
   campus: "Universitas Gadjah Mada",
-  program: "S2 Ilmu Komputer",
+  program: "Magister Ilmu Komputer",
   summary:
-    "Saya fullstack developer yang juga menekuni desain antarmuka dan pengembangan AI agent. Saat ini saya menempuh S2 Ilmu Komputer di Universitas Gadjah Mada, Yogyakarta.",
+    "Saya profesional teknologi informasi dengan pengalaman di integrasi infrastruktur jaringan, pengelolaan sistem TI, dan keamanan data. Karier saya berawal sebagai Network & IT Support Specialist, dari situ saya membangun fondasi di stabilitas sistem, pengelolaan infrastruktur digital, dan optimasi perangkat keras maupun lunak di berbagai organisasi.",
   summary2:
-    "Saya senang menggabungkan tampilan yang rapi, sistem yang andal, dan kecerdasan buatan menjadi produk yang mudah dipakai. Saya terbiasa belajar dengan cepat, bekerja dalam tim, dan menyelesaikan pekerjaan dengan teliti.",
-  quote: "Tampilan yang rapi, sistem yang andal, dan AI, dijadikan satu produk yang mudah dipakai.",
+    "Kini saya memperdalam Intelligent Transportation Systems (ITS) dan Computer Vision. Saya tertarik membangun sistem yang memproses data real-time dan mengubah data mentah menjadi wawasan untuk keputusan yang lebih cepat, akurat, dan efisien.",
+  quote: "Mengubah data mentah menjadi wawasan untuk keputusan yang lebih cepat dan akurat.",
   github: "https://github.com/aldiindraw",
   linkedin: "https://www.linkedin.com/in/aldi-indrawan-256329386/",
+  scholar: "https://scholar.google.com/citations?hl=en&user=lPCd34QAAAAJ",
   researchgate: "https://www.researchgate.net/profile/Aldi-Indrawan",
   instagram: "https://www.instagram.com/aldiindrawann/",
+  cv: "/CV-Aldi-Indrawan.pdf",
 };
 
 export const NAV = [
   { id: "about", label: "Tentang" },
+  { id: "journey", label: "Pengalaman" },
   { id: "skills", label: "Keahlian" },
   { id: "work", label: "Proyek" },
   { id: "design", label: "Desain" },
   { id: "contact", label: "Kontak" },
 ];
 
-export type Family = "Bahasa" | "Frontend" | "Backend" | "Data & Infra" | "Alat" | "Desain" | "Konsep";
-export const FAMILIES: Family[] = ["Bahasa", "Frontend", "Backend", "Data & Infra", "Alat", "Desain", "Konsep"];
+export type Family = "Computer Vision" | "Pemrograman" | "Web" | "Infrastruktur & Data" | "Desain" | "Konsep";
+export const FAMILIES: Family[] = ["Computer Vision", "Pemrograman", "Web", "Infrastruktur & Data", "Desain", "Konsep"];
 
-export type Skill = { name: string; sym: string; family: Family; logo?: string; icon?: string; projects: string[] };
-const SR = "SiRuangan", BM = "Mesin pencari BM25", TS = "Toko Sepatu Online", PO = "Perpustakaan Online";
+export type Skill = { name: string; sym: string; family: Family; logo?: string; icon?: string; projects: string[]; cv?: boolean };
+const SR = "SiRuangan", BM = "Mesin pencari catatan medis", TS = "Toko Sepatu Online", PO = "Perpustakaan Online", GD = "Galeri Desain";
 export const SKILLS: Skill[] = [
-  { name: "PHP", sym: "Ph", family: "Bahasa", logo: "php", projects: [TS, PO] },
-  { name: "JavaScript", sym: "Js", family: "Bahasa", logo: "javascript", projects: [SR] },
-  { name: "TypeScript", sym: "Ts", family: "Bahasa", logo: "typescript", projects: [SR] },
-  { name: "Python", sym: "Py", family: "Bahasa", logo: "python", projects: [SR, BM] },
-  { name: "Java", sym: "Jv", family: "Bahasa", logo: "java", projects: [BM] },
-  { name: "SQL", sym: "Sq", family: "Bahasa", icon: "database", projects: [TS, PO, SR] },
-  { name: "Next.js", sym: "Nx", family: "Frontend", logo: "nextjs", projects: [SR] },
-  { name: "React", sym: "Re", family: "Frontend", logo: "react", projects: [SR] },
-  { name: "Tailwind CSS", sym: "Tw", family: "Frontend", logo: "tailwindcss", projects: [SR] },
-  { name: "shadcn/ui", sym: "Sh", family: "Frontend", icon: "component", projects: [SR] },
-  { name: "HTML", sym: "Ht", family: "Frontend", logo: "html5", projects: [PO] },
-  { name: "CSS", sym: "Cs", family: "Frontend", logo: "css3", projects: [TS] },
-  { name: "FastAPI", sym: "Fa", family: "Backend", logo: "fastapi", projects: [SR] },
-  { name: "Apache Lucene", sym: "Lu", family: "Backend", icon: "search", projects: [BM] },
-  { name: "OpenMRS", sym: "Om", family: "Backend", icon: "cross", projects: [BM] },
-  { name: "REST API", sym: "Ap", family: "Backend", icon: "api", projects: [SR] },
-  { name: "MySQL", sym: "My", family: "Data & Infra", logo: "mysql", projects: [TS, PO] },
-  { name: "SQLite", sym: "Sl", family: "Data & Infra", logo: "sqlite", projects: [SR] },
-  { name: "Docker", sym: "Dk", family: "Data & Infra", logo: "docker", projects: [SR] },
-  { name: "GitHub Actions", sym: "Ga", family: "Data & Infra", logo: "githubactions", projects: [SR] },
-  { name: "Cloudflare", sym: "Cf", family: "Data & Infra", logo: "cloudflare", projects: [SR] },
-  { name: "Git", sym: "Gt", family: "Alat", logo: "git", projects: [SR, BM] },
-  { name: "Google OAuth", sym: "Oa", family: "Alat", icon: "key", projects: [SR] },
-  { name: "Agile/Scrum", sym: "As", family: "Alat", icon: "loop", projects: [SR] },
-  { name: "Canva", sym: "Cn", family: "Desain", logo: "canva", projects: ["Galeri Desain"] },
+  { name: "Python", sym: "Py", family: "Computer Vision", logo: "python", projects: [SR, BM], cv: true },
+  { name: "OpenCV", sym: "Cv", family: "Computer Vision", logo: "opencv", projects: [], cv: true },
+  { name: "Open3D", sym: "O3", family: "Computer Vision", icon: "cube", projects: [], cv: true },
+  { name: "Point Cloud", sym: "Pc", family: "Computer Vision", icon: "cloud", projects: [], cv: true },
+  { name: "DBSCAN", sym: "Db", family: "Computer Vision", icon: "cluster", projects: [], cv: true },
+  { name: "Machine Learning", sym: "Ml", family: "Computer Vision", icon: "spark", projects: [], cv: true },
+  { name: "Intel RealSense", sym: "Rs", family: "Computer Vision", icon: "camera", projects: [], cv: true },
+  { name: "NumPy", sym: "Np", family: "Computer Vision", logo: "numpy", projects: [], cv: true },
+  { name: "Pandas", sym: "Pd", family: "Computer Vision", logo: "pandas", projects: [], cv: true },
+  { name: "Matplotlib", sym: "Mp", family: "Computer Vision", logo: "matplotlib", projects: [], cv: true },
+  { name: "Java", sym: "Jv", family: "Pemrograman", logo: "java", projects: [BM] },
+  { name: "PHP", sym: "Ph", family: "Pemrograman", logo: "php", projects: [TS, PO] },
+  { name: "JavaScript", sym: "Js", family: "Pemrograman", logo: "javascript", projects: [SR] },
+  { name: "TypeScript", sym: "Ts", family: "Pemrograman", logo: "typescript", projects: [SR] },
+  { name: "SQL", sym: "Sq", family: "Pemrograman", icon: "database", projects: [TS, PO, SR] },
+  { name: "LaTeX", sym: "Lx", family: "Pemrograman", logo: "latex", projects: [], cv: true },
+  { name: "Next.js", sym: "Nx", family: "Web", logo: "nextjs", projects: [SR] },
+  { name: "React", sym: "Re", family: "Web", logo: "react", projects: [SR] },
+  { name: "Tailwind CSS", sym: "Tw", family: "Web", logo: "tailwindcss", projects: [SR] },
+  { name: "FastAPI", sym: "Fa", family: "Web", logo: "fastapi", projects: [SR] },
+  { name: "HTML", sym: "Ht", family: "Web", logo: "html5", projects: [PO] },
+  { name: "CSS", sym: "Cs", family: "Web", logo: "css3", projects: [TS] },
+  { name: "Jaringan Komputer", sym: "Nw", family: "Infrastruktur & Data", icon: "network", projects: [], cv: true },
+  { name: "Manajemen Sistem TI", sym: "It", family: "Infrastruktur & Data", icon: "server", projects: [], cv: true },
+  { name: "Keamanan Data", sym: "Ks", family: "Infrastruktur & Data", icon: "shield", projects: [], cv: true },
+  { name: "Dukungan Teknis", sym: "Dt", family: "Infrastruktur & Data", icon: "wrench", projects: [], cv: true },
+  { name: "Docker", sym: "Dk", family: "Infrastruktur & Data", logo: "docker", projects: [SR] },
+  { name: "MySQL", sym: "My", family: "Infrastruktur & Data", logo: "mysql", projects: [TS, PO] },
+  { name: "SQLite", sym: "Sl", family: "Infrastruktur & Data", logo: "sqlite", projects: [SR] },
+  { name: "Git & GitHub", sym: "Gt", family: "Infrastruktur & Data", logo: "git", projects: [SR, BM] },
+  { name: "Canva", sym: "Cn", family: "Desain", logo: "canva", projects: [GD] },
+  { name: "SketchUp", sym: "Sk", family: "Desain", icon: "cube", projects: [GD] },
   { name: "UI/UX", sym: "Ux", family: "Desain", icon: "pen", projects: [SR] },
-  { name: "SketchUp", sym: "Sk", family: "Desain", icon: "cube", projects: ["Galeri Desain"] },
   { name: "Information Retrieval", sym: "Ir", family: "Konsep", icon: "search", projects: [BM] },
-  { name: "AI Agent", sym: "Ai", family: "Konsep", icon: "agent", projects: [] },
-  { name: "LLM", sym: "Ll", family: "Konsep", icon: "spark", projects: [] },
-  { name: "Otomasi alur kerja", sym: "Ot", family: "Konsep", icon: "flow", projects: [] },
+  { name: "Analisis Data", sym: "An", family: "Konsep", icon: "chart", projects: [], cv: true },
+  { name: "Agile/Scrum", sym: "As", family: "Konsep", icon: "loop", projects: [SR] },
+];
+
+export type Entry = { kind: "Pekerjaan" | "Pendidikan" | "Organisasi"; period: string; title: string; place: string; where?: string; points: string[] };
+export const JOURNEY: Entry[] = [
+  { kind: "Pendidikan", period: "Agustus 2025 – sekarang", title: "Magister Ilmu Komputer", place: "Universitas Gadjah Mada", points: [] },
+  {
+    kind: "Pekerjaan", period: "2024 – sekarang", title: "IT Staff (Full Time)", place: "Institut Teknologi & Kesehatan Ika Bina", where: "Labuhan Batu",
+    points: [
+      "Mengelola dan merawat lebih dari 50 unit komputer di laboratorium dengan uptime 99%.",
+      "Mengelola konten website institusi; trafik pengunjung naik 15% dalam 6 bulan lewat optimasi konten.",
+      "Mendesain lebih dari 30 materi promosi digital (poster, flyer) untuk berbagai acara; rata-rata partisipasi acara naik 20%.",
+      "Menjadi titik kontak utama dukungan teknis dan menyelesaikan berbagai permintaan pemecahan masalah setiap minggu.",
+    ],
+  },
+  {
+    kind: "Pekerjaan", period: "2022 – 2024", title: "Guru (Kontrak)", place: "SMK Swasta Siti Banun", where: "Labuhan Batu",
+    points: [
+      "Menerapkan pembelajaran berbasis LMS untuk penyampaian materi; efisiensi pengumpulan tugas naik 40%.",
+      "Membuat materi ajar interaktif dengan perangkat lunak presentasi dan desain; keterlibatan siswa naik 25% berdasarkan survei akhir semester.",
+      "Mengelola nilai dan presensi 3 kelas (90+ siswa) secara digital dengan aplikasi spreadsheet.",
+    ],
+  },
+  {
+    kind: "Pekerjaan", period: "2020 – 2021", title: "HS Staff (Magang)", place: "Telkom Indonesia", where: "Bogor",
+    points: [
+      "Menganalisis data keluhan pelanggan bulanan dan menemukan 3 masalah teknis paling berulang; laporannya dipakai tim teknis untuk memprioritaskan perbaikan.",
+      "Membantu menyusun dan menyebarkan data internal agar 100+ karyawan departemen menerima informasi terbaru.",
+      "Mengelola administrasi dan data presensi, cuti, dan ketidakhadiran untuk mendukung tim SDM.",
+    ],
+  },
+  {
+    kind: "Organisasi", period: "Januari 2020 – Januari 2021", title: "Ketua Klub Bulu Tangkis", place: "Universitas Gunadarma", where: "Depok",
+    points: [
+      "Memimpin latihan rutin (3 sesi per minggu) untuk 100+ anggota aktif.",
+      "Menginisiasi turnamen internal tiap kuartal dengan rata-rata 40 peserta.",
+      "Memimpin promosi lewat Instagram dan WhatsApp; pendaftaran anggota baru naik 30%.",
+    ],
+  },
+  { kind: "Pendidikan", period: "2018 – 2022", title: "S1 Informatika", place: "Universitas Gunadarma", points: ["IPK 3,33"] },
 ];
 
 export type Project = {
@@ -74,24 +122,7 @@ export type Project = {
 };
 export const PROJECTS: Project[] = [
   {
-    id: "siruangan", index: "01", title: "SiRuangan", kicker: "Peminjaman ruangan kampus UGM",
-    description:
-      "Aplikasi fullstack untuk mengajukan dan menyetujui peminjaman ruangan di lingkungan kampus. Dikerjakan tim empat orang dengan metode Agile/Scrum. Peran saya ada di fitur booking, dashboard persetujuan, dan penyambungan antarmuka dengan API.",
-    features: [
-      "Endpoint API booking di FastAPI", "Dashboard persetujuan admin di Next.js",
-      "Profil pengguna dengan Google OAuth", "Jendela detail booking dengan mode gelap",
-      "Perbaikan proxy /api di Next.js", "Alur kerja pull request di GitHub",
-    ],
-    tech: [{ name: "Next.js", logo: "nextjs" }, { name: "FastAPI", logo: "fastapi" }, { name: "Docker", logo: "docker" }, { name: "SQLite", logo: "sqlite" }],
-    github: "https://github.com/aldiindraw/Boking-Ruangan-Universitas-Gadjah-Mada",
-    images: [
-      { src: "/images/siruangan-approval.webp", w: 1140, h: 500, alt: "Dashboard Approval untuk admin: dua pengajuan peminjaman menunggu keputusan dengan tombol Setujui dan Tolak." },
-      { src: "/images/siruangan-landing.webp", w: 1400, h: 698, alt: "Landing page SiRuangan dengan tombol Masuk Portal dan kartu contoh status ruangan." },
-    ],
-    note: "Tangkapan layar dari aplikasi yang dijalankan di komputer lokal dengan akun uji coba dan data contoh. Repositori saya adalah fork dari repo tim.",
-  },
-  {
-    id: "bm25", index: "02", title: "Mesin pencari catatan medis", kicker: "Proyek kelompok Sistem Temu Balik Informasi",
+    id: "bm25", index: "01", title: "Mesin pencari catatan medis", kicker: "Proyek kelompok Sistem Temu Balik Informasi",
     description:
       "Mesin pencari untuk catatan klinis teks bebas yang dipasang sebagai modul di OpenMRS. Membandingkan lima varian pencarian, dari BM25 polos sampai normalisasi istilah klinis (negasi, singkatan, sinonim).",
     features: [
@@ -106,6 +137,23 @@ export const PROJECTS: Project[] = [
       { src: "/images/stbi-bandingkan-varian.webp", w: 1440, h: 775, alt: "Mode bandingkan semua varian untuk kueri hypertension, hasil kelima varian berdampingan." },
     ],
     note: "Hasil evaluasi K=10: BM25 polos P@10 0,540 dan nDCG@10 0,683; normalisasi klinis P@10 0,542 dan nDCG@10 0,687. Selisihnya kecil; penilaian relevansi semi-otomatis.",
+  },
+  {
+    id: "siruangan", index: "02", title: "SiRuangan", kicker: "Peminjaman ruangan kampus UGM",
+    description:
+      "Aplikasi fullstack untuk mengajukan dan menyetujui peminjaman ruangan di lingkungan kampus. Dikerjakan tim empat orang dengan metode Agile/Scrum. Peran saya ada di fitur booking, dashboard persetujuan, dan penyambungan antarmuka dengan API.",
+    features: [
+      "Endpoint API booking di FastAPI", "Dashboard persetujuan admin di Next.js",
+      "Profil pengguna dengan Google OAuth", "Jendela detail booking dengan mode gelap",
+      "Perbaikan proxy /api di Next.js", "Alur kerja pull request di GitHub",
+    ],
+    tech: [{ name: "Next.js", logo: "nextjs" }, { name: "FastAPI", logo: "fastapi" }, { name: "Docker", logo: "docker" }, { name: "SQLite", logo: "sqlite" }],
+    github: "https://github.com/aldiindraw/Boking-Ruangan-Universitas-Gadjah-Mada",
+    images: [
+      { src: "/images/siruangan-approval.webp", w: 1140, h: 500, alt: "Dashboard Approval untuk admin: dua pengajuan peminjaman menunggu keputusan dengan tombol Setujui dan Tolak." },
+      { src: "/images/siruangan-landing.webp", w: 1400, h: 698, alt: "Landing page SiRuangan dengan tombol Masuk Portal dan kartu contoh status ruangan." },
+    ],
+    note: "Tangkapan layar dari aplikasi yang dijalankan di komputer lokal dengan akun uji coba dan data contoh. Repositori saya adalah fork dari repo tim.",
   },
   {
     id: "toko", index: "03", title: "Toko Sepatu Online", kicker: "Toko online dua sisi",

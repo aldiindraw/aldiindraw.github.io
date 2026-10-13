@@ -8,8 +8,8 @@ export default function Work() {
   return (
     <section id="work" className="sec work" aria-labelledby="h-work">
       <div className="wrap">
-        <p className="tag rv">03 — Proyek pilihan</p>
-        <h2 id="h-work" className="h2"><span className="rv-mask"><span>Yang sudah saya <em>bangun.</em></span></span></h2>
+        <p className="tag rv">04 — Proyek pilihan</p>
+        <h2 id="h-work" className="h2"><span className="rv-mask"><span>Proyek <em>pendukung.</em></span></span></h2>
       </div>
       <div className="wrap">
         <div className="acc rv" role="list">
